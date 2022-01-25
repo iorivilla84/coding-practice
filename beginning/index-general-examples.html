@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Green Design</title>
+    <style>
+        .text-box {
+            background-color: #4d4d4d;
+            color: white;
+            height: 200px;
+            width: 200px;
+            padding: 20px;
+        }
+
+        div {
+            margin-bottom: 40px;
+            border-bottom: 1px dotted #4d4d4d;
+            padding: 10px 0;
+        }
+        div > div{
+            margin-bottom: 0;
+            border-bottom: 0;
+            padding: 0;
+        }
+
+        .text-div {
+            color: white;
+            transition: color 1s;
+            background-color: black;
+            padding: 20px;
+        }
+
+        .fading {
+            display: none;
+        }
+
+        .animation {
+            width: 300px;
+            height: 150px;
+            background-color: #4d4d4d;
+            color: white;
+            padding: 20px;
+        }
+
+        h1 {
+            text-transform: uppercase;
+        }
+
+        .inserting {
+            color: red;
+        }
+    </style>
+</head>
+    
+<body>
+    <div class="filter-selec">
+        <h1>Selectors and filters</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores enim
+            aperiam molestiae corrupti cupiditate veritatis repellat! Mollitia officia
+            itaque nihil ab asperiores placeat, at iure blanditiis libero repellendus nulla
+            repudiandae!
+        </p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores enim
+            aperiam molestiae corrupti cupiditate veritatis repellat! Mollitia officia
+            itaque nihil ab asperiores placeat, at iure blanditiis libero repellendus nulla
+            repudiandae!
+        </p>
+        <p>ADVANCE SELECTORS ipsum dolor sit amet, consectetur adipisicing elit. Dolores enim
+            aperiam molestiae corrupti cupiditate veritatis repellat! Mollitia officia
+            itaque nihil ab asperiores placeat, at iure blanditiis libero repellendus nulla
+            repudiandae!
+        </p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores enim
+            aperiam molestiae corrupti cupiditate veritatis repellat! Mollitia officia
+            itaque nihil ab asperiores placeat, at iure blanditiis libero repellendus nulla
+            repudiandae!
+        </p>
+
+    </div>
+
+    <div>
+        <h1>animations</h1>
+        <a href="#" class="grow">Grow</a> | 
+        <a href="#" class="move">Move</a> | 
+        <a href="#" class="big">Bigger</a> | 
+        <a href="#" class="many">Many Things at a time</a>
+        <p class="animation">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores enim
+            aperiam molestiae corrupti cupiditate veritatis repellat! Mollitia officia
+            itaque nihil ab asperiores placeat, at iure blanditiis libero repellendus nulla
+            repudiandae!
+        </p> 
+    </div>
+
+    <div>
+        <h1>slide up</h1>
+        <a href="#" class="slideUp">Sllide Up</a> | 
+        <a href="#" class="slideDown">Slide Down</a> | 
+        <a href="#" class="slideToggle">Slide Toggle</a>
+        <p class="accordion" data-target="Ac1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores enim
+            aperiam molestiae corrupti cupiditate veritatis repellat! Mollitia officia
+            itaque nihil ab asperiores placeat, at iure blanditiis libero repellendus nulla
+            repudiandae!
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores enim
+            aperiam molestiae corrupti cupiditate veritatis repellat! Mollitia officia
+            itaque nihil ab asperiores placeat, at iure blanditiis libero repellendus nulla
+            repudiandae!
+        </p> 
+    </div>
+
+    <div>
+        <h1>Swing</h1>
+        <a href="#" class="toggle">Click to animate text</a>
+        <p class="copyTxt">this is swing toggle animation this is swing toggle animation this is swing toggle animation
+            this is swing toggle animation this is swing toggle animation this is swing toggle animation this is swing toggle animation
+        </p>
+    </div>
+
+    <div>
+        <h1>click and mouse leave</h1>
+        <div class="text-box"></div>
+    </div>
+
+    <div class="box2">
+        <h1>Hide and show</h1>
+        <a href="#" class="hide">Click to Hide</a>
+        <a href="#" class="show">Click to show</a>
+        <h1 class="title">Hide me/ Show me</h1>
+    </div>
+    
+   <div class="textCopy">
+    <h1>Hover</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat esse laborum
+            dicta obcaecati dolor beatae saepe sit architecto, ipsum tempore quas.
+            Obcaecati, veniam excepturi distinctio eius enim deserunt praesentium quidem?
+        </p>
+    </div>
+
+    <div>
+        <h1>Click to Fade in and Out</h1>
+        <a href="#" class="fade-in">Fade in</a> | 
+        <a href="#" class="fade-out">Fade Out</a>
+        <h1 class="fading">
+            Hello World!
+        </h1>
+    </div>
+
+    <div>
+        <h1>Creating Content</h1>
+        <a href="#" class="create-txt">Create-text</a> | 
+        <a href="#" class="create-var">Create-variable</a>
+        <div class="container">
+            <p>1 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores enim
+                aperiam molestiae corrupti cupiditate veritatis repellat! Mollitia officia
+                itaque nihil ab asperiores placeat, at iure blanditiis libero repellendus nulla
+                repudiandae!
+            </p>
+            <p>2 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores enim
+                aperiam molestiae corrupti cupiditate veritatis repellat! Mollitia officia
+                itaque nihil ab asperiores placeat, at iure blanditiis libero repellendus nulla
+                repudiandae!
+            </p>
+            <p> 3 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores enim
+                aperiam molestiae corrupti cupiditate veritatis repellat! Mollitia officia
+                itaque nihil ab asperiores placeat, at iure blanditiis libero repellendus nulla
+                repudiandae!
+            </p>
+        </div>
+    </div>
+
+    <div>
+        <h1>append and preppend</h1>
+        <a href="#" class="append">Append</a> | 
+        <a href="#" class="prepend">Preppend</a>
+        <div class="app-prep">
+            <p>1 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores enim
+                aperiam molestiae corrupti cupiditate veritatis repellat! Mollitia officia
+                itaque nihil ab asperiores placeat, at iure blanditiis libero repellendus nulla
+                repudiandae!
+            </p>
+            <p>2 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores enim
+                aperiam molestiae corrupti cupiditate veritatis repellat! Mollitia officia
+                itaque nihil ab asperiores placeat, at iure blanditiis libero repellendus nulla
+                repudiandae!
+            </p>
+            <p> 3 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores enim
+                aperiam molestiae corrupti cupiditate veritatis repellat! Mollitia officia
+                itaque nihil ab asperiores placeat, at iure blanditiis libero repellendus nulla
+                repudiandae!
+            </p>
+        </div>
+    </div>
+
+    <div>
+        <h1>Inserting content</h1>
+        <div class="insert">
+            <p>1 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores enim
+                aperiam molestiae corrupti cupiditate veritatis repellat! Mollitia officia
+                itaque nihil ab asperiores placeat, at iure blanditiis libero repellendus nulla
+                repudiandae!
+            </p>
+            <p>2 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores enim
+                aperiam molestiae corrupti cupiditate veritatis repellat! Mollitia officia
+                itaque nihil ab asperiores placeat, at iure blanditiis libero repellendus nulla
+                repudiandae!
+            </p>
+            <p> 3 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores enim
+                aperiam molestiae corrupti cupiditate veritatis repellat! Mollitia officia
+                itaque nihil ab asperiores placeat, at iure blanditiis libero repellendus nulla
+                repudiandae!
+            </p>
+        </div>
+    </div>
+
+    <div>
+        <h1>Modifying content and CSS</h1>
+        <a href="#" class="add-class">Add class</a> | 
+        <a href="#" class="remove-class">Remove class</a> | 
+        <a href="#" class="toggle-class">Toggle class</a> | 
+        <a href="#" class="increase-class">Increase class</a>
+        <div class="edit">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores enim
+                aperiam molestiae corrupti cupiditate veritatis repellat! Mollitia officia
+            </p> 
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores enim
+                aperiam molestiae corrupti cupiditate veritatis repellat! Mollitia officia
+            </p> 
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores enim
+                aperiam molestiae corrupti cupiditate veritatis repellat! Mollitia officia
+            </p> 
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="scripts/scripts_general.js"></script>
+</body>
+
+</html>
