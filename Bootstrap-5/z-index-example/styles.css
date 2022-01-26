@@ -1,0 +1,26 @@
+/* all the elements have to be positioned to apply any z-index otherwise it wouldn't work*/
+
+div{
+    height: 100px;
+    width: 300px;
+    border: 1px solid black;
+    position: absolute;
+   
+}
+.red{
+    background-color: red;
+    
+}
+
+.yellow{
+    background-color: yellow;
+    top: 20px;
+    left: 20px;
+}
+.blue{
+    background-color: blue;
+    top: 40px;
+    left: 40px;
+}
+
+
