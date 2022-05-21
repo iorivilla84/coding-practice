@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;500;600;800&family=VT323&display=swap');
+
+body {
+  margin: 30px;
+  font-family: "Poppins";
+}
+
+.grid-container {
+  background-color: #eee;
+  max-width: 900px;
+  margin: 0 auto;
+  display: grid;
+  /* the repeat function works like this (6 = number of divs or element to target,
+      1fr = number of fractions to take into the max-with equally)    
+  */
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: 100px 200px 300px;
+  gap: 10px;
+  justify-items: stretch;
+  align-items: stretch;
+}
+
+.grid-container > div {
+  background-color: #ccc;
+  text-align: center;
+  padding: 20px;
+  border: 1px solid#777;
+}
+
+.grid-container > div:nth-child(1) {
+  /* grid column we can set each div how many spaces it will take:border:
+   example the number 1 is the starting point so that means that it will start from
+   the first div, and span 2 means that it will take two spaces of the width of the
+   container  
+  */
+  grid-column: 1 / span 2;
+}
+
+.grid-container > div:nth-child(2) {
+  /* we don'd add the starting point because we have set it in the css above so that
+  means that when we set the span it will take the next space available
+  */
+ grid-column: span 3;
+}
+
+.grid-container > div:nth-child(3) {
+ grid-column: span 1;
+}
+
+.grid-container > div:nth-child(4) {
+  grid-column: 2 / 6; /* number 6 means that it will expand until the space 6 */
+  align-self: flex-end; /* vertical aligned */
+ }
+
+ .grid-container > div:nth-child(5) {
+  grid-column: span 3;
+ }
+
+ .grid-container > div:nth-child(6) {
+  grid-column: span 3;
+  justify-self: flex-end; /* horizontal aligned */
+  align-self: flex-start; /* vertical aligned */
+ }
+
