@@ -10,7 +10,7 @@ body {
   max-width: 900px;
   margin: 0 auto;
   display: grid;
-  /* the repeat function works like this (6 = number of divs or element to target,
+  /* the repeat function works like this (6 = number of div or element to target,
       1fr = number of fractions to take into the max-with equally)    
   */
   grid-template-columns: repeat(6, 1fr);
