@@ -70,4 +70,50 @@ let replaceAddress = address.replace('B', 'P');
 console.log(replaceAddress);
 
 /*--------------- NUMBERS -----------------*/
-asdasd
+let radius = 10;
+const pi = 3.14;
+
+console.log(radius, pi);
+
+// math operators = +, - , *, /, **, %
+// ** = means to the power of
+
+console.log(10 / 2);
+
+let mathResult = radius % 3;
+console.log(mathResult);
+
+let theMathResult = pi * radius**2;
+console.log(theMathResult);
+
+//order of operation - B I D M A S
+/**
+ * 1. B = Brackets, (we perform first the brackets calculation (10-3 = 7))
+ * 2. I = Indices Calculation **, elevate to the square
+ * 3. D = Division which don't have it yet
+ * 4. M = Multiplication 5 *
+ * 5. A = Addition
+ * 6. S = Subtraction
+ */
+let orderCalc = 5 * (10-3)**2;
+console.log(orderCalc);
+
+let likes = 10;
+// likes = likes + 1; //------- first option
+// likes++; //-------- popular option
+// likes--; //-------- subtraction
+// likes += 10; //------ adds 10 to the equation
+// likes -= 5; //------- subtract 5 to the likes value
+// likes *= 2; //-------- multiply the value times 2
+// likes /= 2; //-------- divide the value by 2
+console.log(likes);
+
+// Nan - Not a Number
+// console.log(5 / 'hello');
+// console.log(5 * 'Hello');
+
+// example of concatenate string
+let myConca = 'The house has ' + likes + ' likes'
+console.log(myConca);
+
+/*--------------- TEMPLATE STRINGS -----------------*/
