@@ -152,7 +152,7 @@ console.log(randomAge);
 
 // Array methods
 // example 1
-let famResult = velasquezF.join(', ');
+let famResult = velasquezF.join(', '); // it transforms an array into a string
 console.log(famResult);
 // example 2
 let famResult2 = velasquezF.indexOf('Benji');
@@ -172,14 +172,14 @@ console.log(famResult5);
 let unAge; // we get undefined or null because we haven't defined a actual number to (let unAge)
 console.log(unAge, unAge + 3, `The age is ${unAge}`);
 
-let myCurrAge = null; // we give an intentional null to clear or not store any value into the browser
+let myCurrAge = null; // we give an intentional null to clear or to not store any value into the browser
 console.log(myCurrAge, myCurrAge + 5, `The current age is ${myCurrAge}`);
 // myCurrAge will turn into 0 so if you try to do a math it will be calculate by 0
 
 /*--------------- BOOLEANS AND COMPARISON -----------------*/
 // methods can return booleans
 let myEmail = 'iorivilla@hotmail.com';
-let resultEmail = email.includes('@');
+let resultEmail = myEmail.includes('@');
 console.log(resultEmail);
 
 let myNames = ['Jessica', 'Diego', 'Benji'];
