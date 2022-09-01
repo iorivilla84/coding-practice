@@ -21,7 +21,7 @@ for (let i = 0; i < names.length; i++) {
     console.log(html);
 };
 
-/*----------- WHILE LOOP 8-----------------*/
+/*----------- WHILE LOOP -----------------*/
 // let i = 0;
 
 // while (i < 5) {
@@ -36,7 +36,7 @@ while (i < allNames.length) {
     i++;
 };
 
-/*----------- WHILE LOOP 8-----------------*/
+/*----------- Do WHILE LOOP -----------------*/
 /* we run the (do while) when the condition regardless is true or false but we want it to run
  at least once */
 let v = 5; // we add value to the variable
