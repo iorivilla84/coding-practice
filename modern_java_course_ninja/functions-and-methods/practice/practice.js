@@ -76,6 +76,13 @@ miGente.forEach((persona, numero) => {
     console.log(`${numero} Hola senor(@) ${persona}`);
 });
 
+console.log('<-------- For each Method and Call Back OPTION 2 BELOWS ---------->');
+const logMiGente = (persona, numero) => {
+    console.log(`${numero} Hola senor(@) ${persona}`);
+};
+
+miGente.forEach(logMiGente);
+
 console.log('<-------- For each Method inserting html ---------->');
 const genteGeneral = ['Necia', 'George', 'Manolo', 'Alba', 'Carlos'];
 const listaGente = document.querySelector('.mi-gente');
