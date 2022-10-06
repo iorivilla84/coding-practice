@@ -29,7 +29,7 @@ dData.myFavMovies();
 dData.login();
 dData.logout();
 
-console.log('<-------- For Each Loop ---------->');
+console.log('<-------- For Each Loop inserted in the DOM ---------->');
 const miGente = ['Jessica', 'Diego', 'Benji', 'Alba', 'Victor', 'Manolo'];
 const ulMyGente = document.querySelector('.myGente');
 
@@ -41,3 +41,33 @@ miGente.forEach( persona => {
 });
 
 ulMyGente.innerHTML = html;
+
+
+console.log('<-------- Objects Literals ---------->');
+const personalData = {
+    name: 'Jessica',
+    age: 28,
+    location: 'Sydney',
+    misPeliculas: [
+        {nombre: 'Residend Evil', likes: 50},
+        {nombre: 'White Collar', likes: 100}
+    ],
+    login() {
+        console.log('user is logged in');
+    },
+    logout() {
+        console.log('user is logged out');
+    },
+    peliculas() {
+        this.misPeliculas.forEach(titulo => {
+            console.log(`Mis peliculas favoritas son ${titulo.nombre}, con ${titulo.likes} likes`);
+        })
+    }
+}
+
+personalData.peliculas();
+personalData.login();
+personalData.logout();
+console.log(personalData.name);
+console.log(personalData.age);
+console.log(personalData.location);
