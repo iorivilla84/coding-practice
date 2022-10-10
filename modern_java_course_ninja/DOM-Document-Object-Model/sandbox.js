@@ -37,3 +37,41 @@ console.log('<!------------- Get elements by tag name ---------------->');
 const myPara = document.getElementsByTagName('p');
 console.log(myPara);
 console.log(myPara[1]);
+
+console.log('<!------------- Adding & Changing page content ---------------->');
+const myContent = document.querySelector('p');
+console.log(myContent.innerText);
+myContent.innerText = 'This is now changed with JS';
+myContent.innerText += ', Append text with JS'; // this example is to append the text on the p element
+
+const allContent = document.querySelectorAll('p');
+allContent.forEach(texto => {
+    console.log(texto.innerText);
+    texto.innerText += ' New text appended with JS'
+});
+
+const theDivContent = document.querySelector('.change');
+const appendDivContent = document.querySelector('.append');
+console.log(theDivContent.innerHTML);
+
+theDivContent.innerHTML = '<h2>Replacing this p tag inside this div with h2 with JS</h2>'
+appendDivContent.innerHTML += ' => Adding text to this h5 with JS'
+
+const myPeople = ['Jessica', 'Victor', 'Alba', 'Benji'];
+const miGenteLista = document.querySelector('.migente');
+
+myPeople.forEach(persona => {
+    miGenteLista.innerHTML += `<p>${persona}</p>`
+});
+
+console.log('<!------------- Getting & Setting Attributes ---------------->');
+const myLink = document.querySelector('a');
+console.log(myLink.getAttribute('href'));
+
+myLink.setAttribute('href', 'www.customlink.com');
+myLink.innerText = 'changing custom text with js'
+
+const errorMssg = document.querySelector('.the-error');
+console.log(errorMssg.getAttribute('class'));
+errorMssg.setAttribute('class', 'success');
+errorMssg.setAttribute('style', 'color: green;')
