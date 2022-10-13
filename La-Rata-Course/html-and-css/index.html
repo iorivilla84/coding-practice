@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -6,6 +7,14 @@
     <title> El titulo que se me de la gana </title>
 
     <link rel="stylesheet" href="styles.css">
+
+    
+    <style>
+        .larata {
+            color: red;
+            font-weight: bolder;
+        }
+    </style>
 </head>
 <body>
     <h1 id="title">Html and Css by the Rata</h1>
@@ -13,7 +22,7 @@
     <img src="la-rata.jpeg" alt="Juitshiiiii">
 
     <form action="enviar.php" method="post" style="margin-top: 20px;">
-        <div>
+        <div class="item-name" style="color: green;">
             <label for="nombre">nombre</label>
             <input type="text" name="" minlength="5" id="nombre" placeholder="nombre">    
         </div>
@@ -21,12 +30,13 @@
             <label for="email">email</label>
             <input type="email" name="" id="email" placeholder="su email">
         </div>
-        <div>
+        <div  class="item-name">
             <label for="numero">numero</label>
             <input type="text" name="" min="7" max="100" id="numero" placeholder="su telefono > 7 < 100">
         </div>
         <div>
             <label for="zip">zip</label>
+            
             <input type="text" name="" id="zip" placeholder="Zip">
         </div>
         <div>
