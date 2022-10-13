@@ -1,0 +1,17 @@
+.error-mssg {
+    padding: 10px;
+    columns: crimson;
+    border: 1px dotted crimson;
+}
+
+.success-txt {
+    padding: 10px;
+    color: green;
+    border: 1px dotted green;
+}
+
+.title {
+    background-color: #4d4d4d;
+    color: white;
+    padding: 10px 0;
+}

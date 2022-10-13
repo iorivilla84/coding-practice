@@ -75,3 +75,32 @@ const errorMssg = document.querySelector('.the-error');
 console.log(errorMssg.getAttribute('class'));
 errorMssg.setAttribute('class', 'success');
 errorMssg.setAttribute('style', 'color: green;')
+
+console.log('<!------------- Changing css Styles ---------------->');
+const myTitle = document.querySelector('h1');
+
+myTitle.style.padding = '50px';
+myTitle.style.fontSize = '16px';
+
+console.log('<!------------- Add or Remove classes ---------------->');
+const myContentError = document.querySelector('.message');
+
+myContentError.classList.add('error-mssg');
+myContentError.classList.remove('error-mssg');
+myContentError.classList.add('success-txt');
+
+console.log('<!------------- Challenge ---------------->');
+
+const myChallenge = document.querySelectorAll('.challenge p');
+
+myChallenge.forEach(texto => {
+    if (texto.textContent.includes('error')) {
+        texto.classList.add('error-mssg');
+    } else if (texto.textContent.includes('success')) {
+        texto.classList.add('success-txt');
+    }
+});
+
+const elTitulo = document.querySelector('.titulo');
+
+elTitulo.classList.toggle('title');16
