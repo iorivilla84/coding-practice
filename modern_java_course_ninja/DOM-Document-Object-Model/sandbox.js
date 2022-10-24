@@ -104,3 +104,105 @@ myChallenge.forEach(texto => {
 const elTitulo = document.querySelector('.titulo');
 
 elTitulo.classList.toggle('title');16
+
+console.log('<!------------- Parent, Children, Siblings  ---------------->');
+
+const myArticle = document.querySelector('article');
+ // the result of the following log below it's an HTMLcollection which if we want to cycle trough it
+ // what means that we can't use an array, forEach, or any loop to apply anything to each element
+ // so what we have to do is we have to convert it to an array first
+console.log(myArticle.children);
+
+// converting the HTMLcollection into an array like the following below
+console.log(Array.from(myArticle.children)); // now this will be an array so we can cycle through it with any loop
+
+Array.from(myArticle.children).forEach(child => {
+    child.classList.add('article-element');
+});
+
+const myH2Title = document.querySelector('article h2');
+
+console.log(myH2Title.parentElement);
+console.log(myH2Title.nextElementSibling);
+console.log(myH2Title.previousElementSibling);
+
+console.log('<!------------- Events Basic (click events) EXAMPLE 1 ---------------->');
+
+const myUlList = document.querySelector(".click-events .first-list")
+const myTodoListButton = document.querySelector('.button1');
+const myItems = document.querySelectorAll('.click-events .item1');
+
+myItems.forEach(item => {
+    item.addEventListener('click', e => {
+        // console.log('item clicked');
+        // console.log(e);
+        // console.log(e.target);
+        // console.log(item);
+
+        // e.target.style.textDecoration = 'line-through'
+        // e.target.style.display = 'none';
+        e.target.style.cssText = `
+            background: red;
+        `;
+    })
+});
+
+myTodoListButton.addEventListener('click', () => {
+    myItems.forEach(list => {
+        list.style.cssText = `
+            display: block;
+            background: green;
+        `;
+    })
+});
+
+console.log('<!------------- Events Basic (click events) and event Bubbling ad delegation ---------------->');
+console.log('<!------------- Adding/Removing list items from the DOM ---------------->');
+
+const myListItems2 = document.querySelectorAll(".click-events .item2");
+const myButtonList = document.querySelector('.click-events .button2');
+const myUlTodoList = document.querySelector('.click-events .todo-list2');
+
+/* myButtonList.addEventListener('click', () => {
+    myUlTodoList.innerHTML += `<li>New Todo</li>`
+}); */
+
+myButtonList.addEventListener('click', () => {
+    const theLiList = document.createElement('li');
+    theLiList.textContent = 'New Todo';
+    // myUlTodoList.append(theLiList);
+    myUlTodoList.prepend(theLiList);
+});
+
+/* console.log(myListItems2);
+myListItems2.forEach(listItem => {
+    listItem.addEventListener('click', e => {
+        e.stopPropagation();
+        e.target.remove();
+    });
+}); */
+
+myUlTodoList.addEventListener('click', e => {
+    if (e.target.tagName === 'LI') {
+        e.target.remove();
+    };
+});
+
+console.log('<!------------- More DOM events ---------------->');
+
+const myCopyRight = document.querySelector('.copy-me');
+
+myCopyRight.addEventListener('copy', () => {
+    alert('OI, this is my content')
+});
+
+const myBoxEvent = document.querySelector('.box');
+
+myBoxEvent.addEventListener('mousemove', e => {
+    myBoxEvent.textContent = `X pos - ${e.offsetX} and y pos - ${e.offsetX}`;
+});
+
+document.addEventListener('wheel', e => {
+    console.log(e.pageX, e.pageY);
+})
+ 
