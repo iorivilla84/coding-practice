@@ -40,4 +40,4 @@ for (let counter = 1; counter < 100; counter++) {
   }
 }
 
-// console.log("link multiplos de https://es.stackoverflow.com/questions/258930/c%C3%B3mo-validar-si-un-n%C3%BAmero-es-m%C3%BAltiplo-de-5");
+// link to resource console.log("link multiplos de https://es.stackoverflow.com/questions/258930/c%C3%B3mo-validar-si-un-n%C3%BAmero-es-m%C3%BAltiplo-de-5");
