@@ -1,0 +1,63 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Vanilla Modern JavaScript </title>
+
+    <link rel="stylesheet" href="../styles.css">
+
+    <style>
+        body {
+            background: #eee;
+        }
+
+        form {
+            max-width: 200px;
+            margin: 40px auto;
+            background: white;
+            padding: 10px;
+        }
+        
+        input {
+            display: block;
+            margin: 10px auto;
+            padding: 4px;
+        }
+
+        .success {
+            border: 2px solid limegreen;
+        }
+
+        .error {
+            border: 2px solid crimson;
+        }
+
+        input {
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+    <section class="form1">
+        <h1>Forms and Form Events </h1>
+
+        <form action="" class="signup-form">
+            <input type="text" id="username" placeholder="username">
+            <input type="submit" value="submit">
+            <div class="feedback"></div>
+        </form>
+    </section>
+
+    <section class="form2">
+        <h1> Keyboard Events </h1>
+
+        <form action="" class="keyboard-event">
+            <input type="text" id="usuario" placeholder="usuario">
+            <input type="submit" value="submit">
+        </form>
+    </section>
+
+    <script src="sandbox.js"></script>
+</body>
+</html>
