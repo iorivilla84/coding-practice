@@ -42,7 +42,7 @@ const reg = /^[a-z]{}$/gi; // conventional and best way to create REGEX
 
 // how below works =>   Regex    String of flag
 // const reg2 = new RegExp(/^[a-z]{}$/, 'i') // Another way of creating a REGEX
-const theInputs = document.querySelectorAll('input');
+const theInputs = document.querySelectorAll('.form1 input');
 
 const regPattern = {
     phone: /^\d{11}$/,
@@ -64,5 +64,29 @@ function inputValidation(field, regex) {
 theInputs.forEach((input) => {
     input.addEventListener('keyup', (e) => {
         inputValidation(e.target, regPattern[e.target.attributes.name.value]);
+    })
+});
+
+const myInput2 = document.querySelectorAll('.form2 input');
+
+const myRegexEx = {
+    usuario: /^[a-z\d]{5,12}$/i,
+    correo: /^([a-z\d\.-]+)@([a-z]+)\.([a-z]{2,8})(\.[a-z]{2,8})?$/,
+    contrasena: /^[\w\d$@_-]{8,20}$/,
+    telefono: /^[\d]{11}$/,
+    sobrenombre: /^[a-z\d-]{8,20}$/
+};
+
+function validation(campo, reguexp) {
+    if (reguexp.test(campo.value)) {
+        campo.className = 'valido';
+    } else {
+        campo.className = 'invalido';
+    }
+};
+
+myInput2.forEach(input => {
+    input.addEventListener('keyup', e => {
+        validation(e.target, myRegexEx[e.target.attributes.name.value]);
     })
 });

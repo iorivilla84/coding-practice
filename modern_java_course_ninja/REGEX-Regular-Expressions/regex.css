@@ -28,15 +28,15 @@ input{
 
 /* validation stiles */
 
-input.valid {
+.form1 input.valid {
     border-color: #36cc36;
 }
 
-input.invalid {
+.form1 input.invalid {
     border-color: red;
 }
 
-p {
+.form1 p {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 0.9em;
     font-weight: bold;
@@ -47,8 +47,26 @@ p {
     height: 0;
 }
 
-input.invalid + p {
+.form1 input.invalid + p {
     opacity: 1;
     height: auto;
     margin-bottom: 20px;
+}
+
+.form2 input.valido {
+    border-color: #36cc36;
+}
+
+.form2 input.invalido {
+    border-color: red;
+}
+
+.form2 p {
+    opacity: 0;
+    height: 0;
+}
+
+.form2 input.invalido + p {
+    opacity: 1;
+    height: auto;
 }
