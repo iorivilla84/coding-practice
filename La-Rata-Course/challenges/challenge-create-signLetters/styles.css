@@ -1,0 +1,77 @@
+:root {
+  --whiteColor: #ffffff;
+  --yellowBg: #f8dc06;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: no-repeat fixed url("./assets/retro_bg.jpg");
+  background-size: cover;
+  font-family: 'Bangers', cursive;
+}
+
+h1 {
+  font-size: 72px;
+  color: var(--whiteColor);
+  text-align: center;
+}
+
+h2 {
+  font-size: 50px;
+  color: var(--whiteColor);
+  text-align: center;
+}
+
+#container {
+  padding: 0 7%;
+}
+
+.input-container {
+  box-sizing: border-box;
+  margin-bottom: 2vw;
+}
+
+.input-container form {
+  display: flex;
+  justify-content: space-between;
+}
+
+.input-container input {
+  padding: 20px;
+  outline: none;
+  width: 80%;
+}
+
+.input-container button {
+  background-color: var(--yellowBg);
+  border: none;
+  cursor: pointer;
+  padding: 20px;
+  width: 15%;
+}
+
+.input-container button:hover {
+  filter: brightness(90%);
+}
+
+#sign {
+  background-color: black;
+  border: 5px double var(--whiteColor);
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  opacity: 0;
+}
+
+#sign.active {
+  opacity: 1;
+}
+
+#sign img {
+  max-width: 150px;
+  width: 100%;
+  margin-right: 5px;
+}
