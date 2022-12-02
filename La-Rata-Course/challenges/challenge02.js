@@ -23,22 +23,17 @@
 
 console.log("<!--------- Challenge 1 -------->");
 const vipepaHotel = {
-  name: "Vipepa Hotel", 
-  totalRooms: 250, 
-  reservedRooms: 182, 
+  name: "Vipepa Hotel",
+  totalRooms: 250,
+  reservedRooms: 182,
   makeReservation(rooms) {
     this.reservedRooms += rooms;
-    rooms++;
-  }, 
-  checkAvailability() {
-    if (this.reservedRooms < this.totalRooms) {
-      return true
-    } else {
-      return false
-    }
   },
   numOfRoomsAvailable() {
-    return vipepaHotel.totalRooms - vipepaHotel.reservedRooms;
+    return this.totalRooms - this.reservedRooms;
+  },
+  checkAvailability() {
+    return this.numOfRoomsAvailable() > 0;
   }
 };
 
@@ -46,7 +41,7 @@ console.log("Name is: ", vipepaHotel.name);
 console.log("Rooms available?: ", vipepaHotel.checkAvailability());
 console.log("# of rooms: ", vipepaHotel.numOfRoomsAvailable());
 console.log("Making a Reservation...");
-vipepaHotel.makeReservation(4);
+vipepaHotel.makeReservation(5);
 console.log("Rooms available?: ", vipepaHotel.checkAvailability());
 console.log("# of rooms: ", vipepaHotel.numOfRoomsAvailable());
 
@@ -84,16 +79,15 @@ const Hotel = function(name = 'Condoricosas', totalRooms = 0, reservedRooms = 0)
   this.reserved = reservedRooms;
   this.makeReservation = function(numrooms) {
     this.reserved += numrooms;
-    numrooms++;
   };
-  this.checkAvailability = function() {
+  this.checkAvailability = function() { // check first point challenge
     if (this.reserved < this.rooms) {
       return true
     } else {
       return false
     }
   },
-  this.numOfRoomsAvailable = function() {
+  this.numOfRoomsAvailable = function() { // check first point challenge
     return this.rooms - this.reserved;
   }
 }
@@ -203,89 +197,50 @@ console.log("# of rooms: ", hotelCondoriCosas.numOfRoomsAvailable());
     hotelExito.makeReservationByDate("Martes", 20) // "Ohh.. unfortunately we can't complete your reservation."
     hotalExito.makeReservationByDate("Jueves", 1); // "Your room have been reserved. See you on Jueves. Your total is: $95"
 
-
-
 */
+/*   LUNES:      $100      35  habitaciones
+    MARTES:     $90       25  habitaciones 
+    MIERCOLES:  $80       12  habitaciones
+    JUEVES:     $95       65  habitaciones
+    VIERNES:    $120      92  habitaciones
+    SABADO:     $150      100 habitaciones
+    DOMINGO:    $135      96  habitaciones */
 
-const ElHostalDeGoku = function (
-  name = "El Hostal De Goku",
-  finalRooms = 0,
-  ratesMap
-) {
-  // rateMap es requerido
+    // [
+    //   {day: 'Lunes', price: 100, rooms: 35},
+    //   {day: 'Martes', price: 90, rooms: 25},
+    //   {day: 'Miercoles', price: 80, rooms: 12},
+    //   {day: 'Jueves', price: 95, rooms: 65},
+    //   {day: 'Viernes', price: 120, rooms: 92},
+    //   {day: 'Sabado', price: 150, rooms: 100},
+    //   {day: 'Domingo', price: 135, rooms: 96},
+    // ],
+
+console.log("<!--------- Challenge 3 -------->");
+
+const ElHostalDeGoku = function(name = 'El Hostal De Goku', finalRooms = 0, ratesMap) {
   if (!ratesMap) {
     console.log("Ooops, you're missing a rate map");
   }
-
   this.name = name;
   this.rooms = finalRooms;
   this.ratesMap = ratesMap;
 
-  this.makeReservationByDate = function (weekday, roomsToReserve) {
-    // Verificar si hay el numero de habitaciones disponibles suficiente
-    // para hacer la reserva, el dia que la persona desea
-    const dayInfo = this.ratesMap[weekday];
-    const roomsAvailableForThatDay = this.rooms - dayInfo.roomsToReserve;
-    if (roomsToReserve < roomsAvailableForThatDay) {
-      // si puede reservar
-    } else if (roomsToReserve > roomsAvailableForThatDay) {
-      // no puede reserver
+  this.makeReservationByDate = function(weekday, roomsToReserve) {
+    const { rate, roomsReserved } = this.ratesMap[weekday];
+    const roomsAvailableForThatDay = this.rooms - roomsReserved;
+    const canMakeReservation = roomsToReserve < roomsAvailableForThatDay;
+    if (canMakeReservation) {
+      if (roomsToReserve === 1) {
+        console.log(`Your room have been reserved. See you on ${weekday}. Your total is: $ ${rate}`);
+      } else {
+        console.log(`Your rooms have been reserved. You reserved ${roomsToReserve} rooms. See you on ${weekday}. Your total is: $ ${rate}`);
+      }
+    } else {
+      console.log("Ohh.. unfortunately we can't complete your reservation.");
     }
-
-    // SI hay suficientes habitaciones para ese dia
-    // si solo quiere 1
-    // mandar mensaje para una sola habitacion
-    // si quiere varias
-    // mandar mensaje para MULTIPLES habitaciones
-    // SI NO hay
-    // mandar mensaje "oops"
-  };
-};
-makeReservationByDate("sabado", 5);
-const miObjetoRaro = {
-  lunes: { rate: 100, roomsReserved: 35 },
-  martes: { rate: 90, roomsReserved: 25 },
-  miercoles: { rate: 80, roomsReserved: 12 },
-  jueves: { rate: 95, roomsReserved: 65 },
-  viernes: { rate: 120, roomsReserved: 92 },
-  sabado: { rate: 150, roomsReserved: 100 },
-  domingo: { rate: 135, roomsReserved: 96 }
-};
-
-const karin = new ElHostalDeGoku(
-  "La Torre del Maestro Karin",
-  100,
-  miObjetoRaro
-);
-hotelExito.makeReservationByDate("Miercoles", 20);
-/**
- *     - Para probarlo corre estas funciones
-    const hotelDePrueba = new ElHostalDeGoku(); // "Ooops, you're missing a rate map"
-    const krilinInn = new ElHostalDeGoku("Krilin Inn"); // "Ooops, you're missing a rate map"
-    const pulgas = new ElHostalDeGoku("Pulgas", ratesMap); // "Ooops, you're missing a rate map"
-    const hostalExito = new ElHostalDeGoku("Hostal Exito", 200, rateMap);
-
-    hotalExito.makeReservationByDate("Sabado", 1); // "Ohh.. unfortunately we can't complete your reservation."
-    hotalExito.makeReservationByDate("Lunes", 5); // "Your rooms have been reserved. You reserved 5 rooms. See you on Lunes. Your total is: $500"
-    hotelExito.makeReservationByDate("Martes", 20) // "Ohh.. unfortunately we can't complete your reservation."
-    hotalExito.makeReservationByDate("Jueves", 1); // "Your room have been reserved. See you on Jueves. Your total is: $95"
- */
-
-const myDates = {
-  lunes: { temp: 20, ejercicio: "pechito" },
-  martes: "Me encantan los martes",
-  miercoles: "Me encantan los miercoles",
-  jueves: "Me encantan los jueves",
-  viernes: "Me encantan los viernes",
-  sabado: "Me encantan los sabado",
-  domingo: "Me encantan los domingo"
-};
-
-function checkDate(date) {
-  console.log(myDates[date].ejercicio);
+  }
 }
-
-checkDate("lunes");
 
 const agendaReservas = {
   lunes: { rate: 100, roomsReserved: 35 },
@@ -297,36 +252,19 @@ const agendaReservas = {
   domingo: { rate: 135, roomsReserved: 96 }
 };
 
-const totalRooms = 100;
-//   "jueves"    3
-const makeReservationByDate = function (weekday, roomsToReserve) {
-  const { rate, roomsReserved } = agendaReservas[weekday]; // { rate: 95, roomsReserved: 65 }
-  const roomsAvailableForThatDay = totalRooms - roomsReserved; // 100 - 65 = 35
+// const laTorreDelMaestroKarin = new ElHostalDeGoku('La Torre del Maestro Karin', 100, agendaReservas);
 
-  if (roomsToReserve <= roomsAvailableForThatDay) {
-    // si puede reservar
-    if (roomsToReserve === 1) {
-      // mandar mensaje OK para una sola habitacion
-
-    } else {
-      // mandar mensaje OK para MULTIPLES habitaciones
-      const total = rate*roomsToReserve;
-      console.log(`Your rooms have been reserved. You reserved ${roomsToReserve} rooms. See you on ${weekday}. Your total is: $ ${total} `);
-    }
-  } else if (roomsToReserve > roomsAvailableForThatDay) {
-    // no puede reserver
-    // mandar mensaje "oops"
-  }
-};
-
-makeReservationByDate("jueves", 3);
+// console.log(laTorreDelMaestroKarin.name);
+// console.log(laTorreDelMaestroKarin.rooms);
+// console.log(laTorreDelMaestroKarin.makeReservationByDate("lunes",1));
 
 
-const diego = { name: "Illeins", hubby: "Jessica" };
-// const hubby = diego.hubby;
-// const name = diego.name;
+//const hotelDePrueba = new ElHostalDeGoku(); // "Ooops, you're missing a rate map"
+    //const krilinInn = new ElHostalDeGoku("Krilin Inn"); // "Ooops, you're missing a rate map"
+    //const pulgas = new ElHostalDeGoku("Pulgas", agendaReservas); // "Ooops, you're missing a rate map"
+    const hostalExito = new ElHostalDeGoku("Hostal Exito", 200, agendaReservas);
 
-const { name, hubby } = diego;
-
-console.log(name)
-
+    //hostalExito.makeReservationByDate("sabado", 1); // "Ohh.. unfortunately we can't complete your reservation."
+    hostalExito.makeReservationByDate("lunes", 5); // "Your rooms have been reserved. You reserved 5 rooms. See you on Lunes. Your total is: $500"
+    hostalExito.makeReservationByDate("martes", 20) // "Ohh.. unfortunately we can't complete your reservation."
+    hostalExito.makeReservationByDate("jueves", 1); // "Your room have been reserved. See you on Jueves. Your total is: $95"
