@@ -12,9 +12,11 @@ const start = e => {
     }
 }
 
-const delElement = e => {
+const delElement = (e, detail) => {
     const delLi = e.target.parentNode.parentNode;
     listContainer.removeChild(delLi);
+    updateCounter()
+    removeElementFromLocalStorage(detail);
 };
 
 const completeElement = e => {
@@ -61,10 +63,51 @@ const updateCounter = () => {
 const addElement = (li, desc) => {
     const newLi = createElement(li, desc);
     listContainer.prepend(newLi);
+    addElementToLocalStorage();    
 };
 
-const addElementToLocalStorage = li => {
+const addElementToLocalStorage = () => {
+    const inpTitle = inputTitle.value.trim();
+    const inpDesc = inputDesc.value.trim();
 
+    if (inpTitle && inpDesc) {
+        let key = details.keybase;
+        let storage = localStorage.getItem(key);
+        let eachDetails = [];
+        if (storage) {
+            eachDetails = JSON.parse(storage);
+        }
+
+        eachDetails.push(inpTitle, inpDesc);
+        eachDetails = Array.from(new Set(eachDetails));
+        localStorage.setItem(key, JSON.stringify(eachDetails));
+    }
+}
+
+const displayElementFromLocalStorage = () => {
+    let key = details.keybase;
+    let storage = localStorage.getItem(key);
+    let locDetails = [];
+    if (storage) {
+        locDetails = JSON.parse(storage);
+    }
+
+    locDetails.push(details.keys);
+    locDetails = Array.from(new Set(locDetails));
+    newLi = createElement(locDetails);
+    listContainer.append(newLi);
+    updateCounter()
+    console.log(typeof newLi);
+
+}
+
+const removeElementFromLocalStorage = detail => {
+    let key = details.keybase;
+    const savedStorage = localStorage.getItem(key);
+    if (localStorage) {
+        const filteredDetails = savedStorage.filter(key => key != detail);
+        localStorage.setItem(key, JSON.stringify(filteredDetails));
+    }
 }
 
 const counter = document.querySelector('.counter')
@@ -73,5 +116,12 @@ const inputTitle = document.querySelector('.todo-text');
 const inputDesc = document.querySelector('.todo-desc');
 const addBtn = document.querySelector('.add-btn');
 const listContainer = document.querySelector('.list-container');
+
+const details = {
+    keybase: 'Li-Details',
+    keys: [],
+};
+
+displayElementFromLocalStorage();
 
 addBtn.addEventListener('click', start);
