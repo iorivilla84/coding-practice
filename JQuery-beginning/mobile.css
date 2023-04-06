@@ -1,0 +1,11 @@
+.sub-menu {
+    height: 0;
+    overflow: hidden;
+    transition: height .5s ease-in-out;
+}
+
+.sub-menu.active {
+    height: 100px;
+    overflow: auto;
+    transition: height .5s ease-in-out;
+}
