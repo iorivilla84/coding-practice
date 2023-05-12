@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Solway&display=swap" rel="stylesheet">
+  <title>JS Advance</title>
+
+  <style>
+    #main-title {
+        text-align: center;
+    }
+    
+    .form-container {
+        width: 500px;
+        margin: 0 auto;
+        background-color: #ededed;
+        padding: 30px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    
+    .text {
+        margin: 0;
+        padding: 0 15px;
+        width: 45%;
+    }
+
+    .counting-words {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid #4d4d4d;
+    }
+    
+    form {
+        width: 50%;
+    }
+    .error-msg {
+        display: none;
+    }
+  </style>
+</head>
+<body>
+  <h1 id="main-title">Counting Words</h1>
+
+  <div class="form-container">
+    <form action="">
+        <input class="counting-words" type="text" maxlength="20 ">
+    </form>
+    <p class="text"> <span class="counting">20</span> / 20 </p>
+  </div>
+  <div> <p class="error-msg"></p> </div>
+  <script src="./app.js"></script>
+</body>
+</html>
