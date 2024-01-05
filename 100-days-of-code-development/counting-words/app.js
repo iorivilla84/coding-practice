@@ -9,7 +9,7 @@ const getCount = (inputField) => {
     counter.innerHTML = maxAllowText - inputText.length;
 
     
-    if (inputText.length < 10) {
+    if (inputText.length <= 10) {
         counter.style.color = 'green';
     } else if (inputText.length < 15) {
         counter.style.color = 'orange';
