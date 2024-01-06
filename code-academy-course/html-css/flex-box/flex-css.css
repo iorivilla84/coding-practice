@@ -1,0 +1,160 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    background-color: black;
+    font-family: Helvetica, sans-serif;
+    font-size: 22px;
+    color: seashell;
+    opacity: .5;
+}
+
+img {
+    width: 100%;
+}
+
+a {
+    color: seashell;
+}
+
+header {
+    position: fixed;
+    width: 100%;
+    background-color: black;
+    z-index: 10;
+}
+
+.header-wrapper {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid seashell;
+    padding: 0 10px;
+    height: 100%;
+    max-height: 69px;
+    align-items: center;
+}
+
+.logo {
+    max-height: 50px;
+}
+
+.nav-wrapper {
+    padding: 0;
+    display: flex;
+    gap: 30px;
+}
+
+.nav-items {
+    list-style: none;
+}
+
+main, footer {
+    position: relative;
+    top: 70px;
+    text-align: center;
+}
+
+main {
+    padding: 0 4%;
+}
+
+#banner {
+    background-image: url(img-mission-background.jpg);
+    height: 100%;
+    max-height: 56.4vw;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.banner-wrapper {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.banner-desc {
+    width: 100%;
+    background-color: black;
+}
+
+#topics {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding-top: 50px;
+}
+
+.topics-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+}
+
+.topic-img {
+    width: 300px;
+    height: 200px;
+}
+
+.topic-item .title {
+    margin-top: 10px;
+}
+
+#location {
+    background-image: url(img-locations-background.webp);
+    height: 100%;
+    max-height: 40.75vw;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.location-container {
+    display: flex;
+    justify-content: center;
+}
+
+.location-item {
+    background-color: black;
+    margin-right: 40px;
+    width: 300px;
+}
+
+.location-item:last-child {
+    margin-right: 0;
+}
+
+ul.locations {
+    padding: 0;
+}
+
+.location-item {
+    list-style: none;
+    padding: 15px 0;
+}
+
+footer {
+    height: 200px;
+}
+
+footer p {
+    font-weight: bold;
+}
+
+.copy-right {
+    text-align: left;
+    padding: 0 20px 1px;
+}
