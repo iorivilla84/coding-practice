@@ -1,0 +1,35 @@
+.grid {
+    border: 2px blue solid;
+    height: 500px;
+    width: 500px;
+    display: grid;
+  /*   grid-template-columns: 25% 25% 2fr 1fr;
+    grid-template-rows: 200px 200px; */
+    grid-template: 200px 200px / 25% 25% 2fr 1fr;
+    /* row-gap: 10px;
+    column-gap: 15px; */
+    gap: 10px 15px;
+  }
+  
+  .box {
+    background-color: beige;
+    color: black;
+    border-radius: 5px;
+    border: 2px dodgerblue solid;
+  }
+  
+  .a {
+  /*   grid-column-start: 1;
+    grid-column-end: span 2; */
+    /* using span to end column */
+    /* grid-column: 1 / span 2; */
+  
+    /* without using span to end row Note: end row/column is always one number up than the end number, eg. if ends in 2 (number is 3 (one number up)) */
+    /* grid-row-start: 1;
+    grid-row-end: 3; */
+    /* grid-row: 1 / 3; */
+  
+    /* refactor to combine row and columns */
+    /* grid-aread order => start=> row, column, end=> row, column */
+    grid-area: 1 / 1 / 3 / span 2;
+  }
