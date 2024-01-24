@@ -1,0 +1,32 @@
+.copy {
+  flex-shrink: 0;
+  width: var(--height);
+  height: var(--height);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #dddddd;
+  color: #333333;
+  outline: none;
+  border: 1px solid #cccccc;
+  cursor: pointer;
+}
+
+.template {
+  margin-bottom: 20px;
+  padding: 0 25px;
+}
+
+label, .label {
+  text-transform: uppercase;
+    display: inline-block;
+}
+
+code {
+  line-height: 170%;
+  display: block;
+}
+
+input {
+  width: 800px;
+}
