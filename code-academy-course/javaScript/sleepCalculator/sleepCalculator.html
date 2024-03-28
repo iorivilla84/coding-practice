@@ -4,11 +4,123 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        .main, header {
+            width: 100%;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .main {
+            background-color: #f4f4f4;
+            padding: 10px 0;
+        }
+
+        .week-wrapper {
+            margin-bottom: 10px;
+            padding: 10px;
+        }
+
+        label {
+            display: block;
+            margin: 0 auto 10px;
+            width: fit-content;
+        }
+
+        input {
+            padding: 5px;
+        }
+
+        .sleep-result {
+            background-color: #fdfdfd;
+            padding: 20px;
+        }
+
+        .result-title {
+            margin-bottom: 10px;
+        }
+
+        .submit {
+            cursor: pointer; 
+            padding: 12px 20px;
+        }
+        .output {
+            visibility: hidden;
+        }
+        .output.active {
+            visibility: visible;
+        }
+
+        .error {
+            display: none;
+        }
+        .error.active {
+            display: block;
+        }
+    </style>
 </head>
 <body>
-    <h1>sleepCalculator</h1>
-    
-    <p>And your sleep is: <span class="output"></span> </p>
+    <header>
+        <h1>sleepCalculator</h1>
+        
+        <h3>Calculate your sleeping time during the week</h3>
+        <p>Please enter the numbers of hours per day below</p>
+    </header>
+
+    <div class="main">
+        <div class="week-wrapper">
+            <label for="monday">Monday</label>
+            <input placeholder="Enter number" type="text" id="monday" class="weekday">
+        </div>
+        <div class="week-wrapper">
+            <label for="tuesday">Tuesday</label>
+            <input placeholder="Enter number" type="text" id="tuesday" class="weekday">
+        </div>
+        <div class="week-wrapper">
+            <label for="wednesday">Wednesday</label>
+            <input placeholder="Enter number" type="text" id="wednesday" class="weekday">
+        </div>
+        <div class="week-wrapper">
+            <label for="thursday">Thursday</label>
+            <input placeholder="Enter number" type="text" id="thursday" class="weekday">
+        </div>
+        <div class="week-wrapper">
+            <label for="friday">Friday</label>
+            <input placeholder="Enter number" type="text" id="friday" class="weekday">
+        </div>
+        <div class="week-wrapper">
+            <label for="saturday">Saturday</label>
+            <input placeholder="Enter number" type="text" id="saturday" class="weekday">
+        </div>
+        <div class="week-wrapper">
+            <label for="sunday">Sunday</label>
+            <input placeholder="Enter number" type="text" id="sunday" class="weekday">
+        </div>
+        <div class="week-wrapper">
+            <button type="submit" class="submit">Check your sleep</button>
+        </div>
+        
+        
+        <div class="sleep-result">
+            <h2 class="result-title">Your sleeping time is:</h2>
+            <p class="output"></p>
+            <p class="error"></p>
+        </div>
+    </div>
+
+
+
     
     <script src="sleepCalculator.js"></script>
 </body>

@@ -1,39 +1,35 @@
-const getSleepHours = (day) => {
-    const sleepHours = Math.floor(Math.random() * 15);
-    
-    switch (day) {
-        case 'monday':
-            return sleepHours;
-            break;
-        case 'tuesday':
-            return sleepHours;
-            break;
-        case 'wednesday':
-            return sleepHours;
-            break;
-        case 'thursday':
-            return sleepHours;
-            break;
-        case 'friday':
-            return sleepHours;
-            break;
-        case 'saturday':
-            return sleepHours;
-            break;
-        case 'sunday':
-            return sleepHours;
-            break;
+const calcSleepHours = numDays =>  {
+    let sum = 0;
+    for(let i = 0; i < numDays; i++) {
+        sum += Math.floor(Math.random() * 15);
     }
+    return sum;
+};
+
+const getWeekSleepValue = () => {
+    let sleepHoursRes = []
+    weekDayInput.forEach(day => {
+        if(day.value !== '') {
+            outputSleepHours.classList.add('active');
+            errorOutput.classList.remove('active')
+        } else {
+            errorOutput.classList.add('active')
+            errorOutput.innerHTML = 'Please fill out the form'
+        }
+
+        return sleepHoursRes.push(day.value);
+    });
+
+    const resultSleep = sleepHoursRes.reduce(function(prev, curr){
+        return (Number(prev) || 0) + (Number(curr) || 0);
+    });
+    
+    return resultSleep;
 }
 
-const calcSleepHours = () => 
-    getSleepHours('monday')
-    + getSleepHours('tuesday')
-    + getSleepHours('wednesday')
-    + getSleepHours('thursday')
-    + getSleepHours('friday')
-    + getSleepHours('saturday')
-    + getSleepHours('sunday');
+
+
+// Week Value Here
 
 const getIdealSleepHours = () => {
     const idealSleepHour = 8;
@@ -42,7 +38,7 @@ const getIdealSleepHours = () => {
 
 const actualSleepHours = () => {
     const getSleepingHours = getIdealSleepHours();
-    const getCalcSleepingHours = calcSleepHours();
+    const getCalcSleepingHours = getWeekSleepValue();
 
     console.log(getCalcSleepingHours);
     console.log(getSleepingHours);
@@ -59,12 +55,19 @@ const actualSleepHours = () => {
     }
 }
 
-console.log(calcSleepHours());
+console.log(calcSleepHours(7));
 console.log(getIdealSleepHours());
 console.log(calcSleepHours() - getIdealSleepHours());
 
 
 
 const outputSleepHours = document.querySelector('.output');
+const errorOutput = document.querySelector('.error');
+const weekDayInput = document.querySelectorAll('.weekday');
+const submitSleepHoursBtn = document.querySelector('.submit');
 
-outputSleepHours.innerHTML = actualSleepHours();
+submitSleepHoursBtn.addEventListener('click', () => {
+    console.log(getWeekSleepValue());
+    outputSleepHours.innerHTML = actualSleepHours();
+    getWeekSleepValue();
+});
