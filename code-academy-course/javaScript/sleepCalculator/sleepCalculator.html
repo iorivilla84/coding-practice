@@ -33,13 +33,15 @@
         }
 
         label {
-            display: block;
-            margin: 0 auto 10px;
-            width: fit-content;
+            display: inline-block;
+            margin-bottom: 10px;
         }
 
         input {
+            display: block;
+            margin: 0 auto 10px;
             padding: 5px;
+            width: fit-content;
         }
 
         .sleep-result {
@@ -81,34 +83,41 @@
     <div class="main">
         <div class="week-wrapper">
             <label for="monday">Monday</label>
-            <input placeholder="Enter number" type="text" id="monday" class="weekday">
+            <label class="not-enough"></label>
+            <input placeholder="Enter number" type="number" id="monday" class="weekday">
         </div>
         <div class="week-wrapper">
             <label for="tuesday">Tuesday</label>
-            <input placeholder="Enter number" type="text" id="tuesday" class="weekday">
+            <label class="not-enough"></label>
+            <input placeholder="Enter number" type="number" id="tuesday" class="weekday">
         </div>
         <div class="week-wrapper">
             <label for="wednesday">Wednesday</label>
-            <input placeholder="Enter number" type="text" id="wednesday" class="weekday">
+            <label class="not-enough"></label>
+            <input placeholder="Enter number" type="number" id="wednesday" class="weekday">
         </div>
         <div class="week-wrapper">
             <label for="thursday">Thursday</label>
-            <input placeholder="Enter number" type="text" id="thursday" class="weekday">
+            <label class="not-enough"></label>
+            <input placeholder="Enter number" type="number" id="thursday" class="weekday">
         </div>
         <div class="week-wrapper">
             <label for="friday">Friday</label>
-            <input placeholder="Enter number" type="text" id="friday" class="weekday">
+            <label class="not-enough"></label>
+            <input placeholder="Enter number" type="number" id="friday" class="weekday">
         </div>
         <div class="week-wrapper">
             <label for="saturday">Saturday</label>
-            <input placeholder="Enter number" type="text" id="saturday" class="weekday">
+            <label class="not-enough"></label>
+            <input placeholder="Enter number" type="number" id="saturday" class="weekday">
         </div>
         <div class="week-wrapper">
             <label for="sunday">Sunday</label>
-            <input placeholder="Enter number" type="text" id="sunday" class="weekday">
+            <label class="not-enough"></label>
+            <input placeholder="Enter number" type="number" id="sunday" class="weekday">
         </div>
         <div class="week-wrapper">
-            <button type="submit" class="submit">Check your sleep</button>
+            <button type="number" class="submit">Check your sleep</button>
         </div>
         
         

@@ -8,16 +8,22 @@ const calcSleepHours = numDays =>  {
 
 const getWeekSleepValue = () => {
     let sleepHoursRes = []
-    weekDayInput.forEach(day => {
-        if(day.value !== '') {
+    
+    weekDayInput.forEach(eachDay => {
+        if(eachDay.value !== '') {
             outputSleepHours.classList.add('active');
             errorOutput.classList.remove('active')
         } else {
             errorOutput.classList.add('active')
             errorOutput.innerHTML = 'Please fill out the form'
         }
+        
+        if (eachDay.value < 8 || eachDay.value < '8') {
+            eachDay.parentElement.firstElementChild.nextElementSibling.innerHTML = 'X'
+            eachDay.parentElement.firstElementChild.style.color = 'red';
+        }
 
-        return sleepHoursRes.push(day.value);
+        return sleepHoursRes.push(eachDay.value);
     });
 
     const resultSleep = sleepHoursRes.reduce(function(prev, curr){
