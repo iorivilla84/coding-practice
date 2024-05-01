@@ -6,13 +6,13 @@ const calcSleepHours = numDays =>  {
     return sum;
 };
 
-const getWeekSleepValue = () => {
+const totalHoursSlept = () => {
     let sleepHoursRes = []
     
     weekDayInput.forEach(eachDay => {
         if(eachDay.value !== '') {
             outputSleepHours.classList.add('active');
-            errorOutput.classList.remove('active')
+            errorOutput.classList.remove('active');
         } else {
             errorOutput.classList.add('active')
             errorOutput.innerHTML = 'Please fill out the form'
@@ -33,22 +33,15 @@ const getWeekSleepValue = () => {
     return resultSleep;
 }
 
-
-
 // Week Value Here
-
-const getIdealSleepHours = () => {
+const idealSleepHours = () => {
     const idealSleepHour = 8;
     return idealSleepHour * 7;
 }
 
-const actualSleepHours = () => {
-    const getSleepingHours = getIdealSleepHours();
-    const getCalcSleepingHours = getWeekSleepValue();
-
-    console.log(getCalcSleepingHours);
-    console.log(getSleepingHours);
-    console.log('real number ' + (getSleepingHours - getCalcSleepingHours));
+const sleepResultMessage = () => {
+    const getSleepingHours = idealSleepHours();
+    const getCalcSleepingHours = totalHoursSlept();
 
     if (getSleepingHours === getCalcSleepingHours) {
         return 'You have got the perfect sleep'; 
@@ -61,19 +54,36 @@ const actualSleepHours = () => {
     }
 }
 
-console.log(calcSleepHours(7));
-console.log(getIdealSleepHours());
-console.log(calcSleepHours() - getIdealSleepHours());
-
-
-
 const outputSleepHours = document.querySelector('.output');
 const errorOutput = document.querySelector('.error');
 const weekDayInput = document.querySelectorAll('.weekday');
 const submitSleepHoursBtn = document.querySelector('.submit');
 
 submitSleepHoursBtn.addEventListener('click', () => {
-    console.log(getWeekSleepValue());
-    outputSleepHours.innerHTML = actualSleepHours();
-    getWeekSleepValue();
+    console.log(totalHoursSlept());
+    outputSleepHours.innerHTML = sleepResultMessage();
+    totalHoursSlept();
 });
+
+const calcWeekSleepHours = () => {
+
+}
+
+const resultMessage = () => {
+
+}
+
+const calcSleepHoursDifference = () => {
+
+}
+
+const sleepView = {
+    days: [
+        {
+            day: 'monday',
+            sleptHours: 0
+        }
+    ]
+}
+
+//crear funcion the agarre lista de dias del objeto y crea un input
