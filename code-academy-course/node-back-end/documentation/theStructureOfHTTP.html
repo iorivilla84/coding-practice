@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        p, li {
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <div class="container">
+            <h2>The Structure of HTTP</h2>
+            <p>HTTP <a href="https://www.codecademy.com/resources/docs/javascript/requests" target="_blank">requests</a> and responses have specific structures to help facilitate the exchange of information between a client and a server. These structures encapsulate all of the important information required to instruct the recipient of the message on how to react.</p>
+            <h2>Requests</h2>
+
+            <p>Requests are comprised of a few core elements that provide information to a server. The core elements that can be expected are:</p>
+
+            <ol class="styles_ol__GHGYn">
+                <li><p><strong>HTTP Method</strong>: The HTTP method is usually a verb, such as <code class="styles_code__L5_fh">GET</code> and <code class="styles_code__L5_fh">POST</code>, or a noun such as <code class="styles_code__L5_fh">OPTIONS</code> and <code class="styles_code__L5_fh">HEAD</code>. These <a href="https://www.codecademy.com/resources/docs/javascript/methods" target="_blank" class="gamut-d5kubd-AnchorBase e14vpv2g0">methods</a> inform the server of the intent of the request and are used in accurately routing and processing requests. For instance, an HTTP request containing a <code class="styles_code__L5_fh">GET</code> method implies that the client wants to fetch a resource. The list of supported HTTP methods can be found using the <code class="styles_code__L5_fh">http.METHODS</code> property.</p>
+                </li>
+                <li><p><strong>Path</strong>: The path denotes the path of the resource relative to the root URL. For example, making a <code class="styles_code__L5_fh">GET</code> request to <code class="styles_code__L5_fh">https://codecademy.com/api/lessons</code> would strip common elements such as the protocol (<code class="styles_code__L5_fh">https://</code>) and domain (<code class="styles_code__L5_fh">codecademy.com</code>), leaving the path of <code class="styles_code__L5_fh">/api/lessons</code>.</p>
+                </li>
+                <li><p><strong>HTTP Protocol Version</strong>: The version of the HTTP protocol (I.e. <a target="_blank" href="https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol" rel="noopener" class="gamut-d5kubd-AnchorBase e14vpv2g0">HTTP/1.1</a>, <a target="_blank" href="https://en.wikipedia.org/wiki/HTTP/2" rel="noopener" class="gamut-d5kubd-AnchorBase e14vpv2g0">HTTP/2</a>, and <a target="_blank" href="https://en.wikipedia.org/wiki/HTTP/3" rel="noopener" class="gamut-d5kubd-AnchorBase e14vpv2g0">HTTP/3</a>). We will learn more about this in the next exercise.</p>
+                </li>
+                <li><p><strong>Headers</strong>: Headers are optional and are used to convey additional information that may be important in processing a request by a server. There is an extensive list of <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers" rel="noopener" class="gamut-d5kubd-AnchorBase e14vpv2g0">standard headers</a> that can be used, as well as custom headers that can be added on a per-application basis.</p>
+                </li>
+                <li><p><strong>Body</strong>: The body contains data required to be sent to the server to process a request. The body is not leveraged for all request types. It is most common to see a body attached to requests with verbs such as <code class="styles_code__L5_fh">POST</code>, <code class="styles_code__L5_fh">PUT</code>, and <code class="styles_code__L5_fh">PATCH</code>.</p>
+                </li>
+            </ol>
+
+            <h2>Responses</h2>
+
+            <p>Responses are comprised of similar elements to their counterpart requests, with a few differences. The core elements that can be expected in a response are:</p>
+
+            <ol class="styles_ol__GHGYn">
+                <li><p><strong>HTTP Protocol Version</strong>: The version of the HTTP protocol, similar to the request.</p>
+                </li>
+                <li><p><strong>Status Code</strong>: The status code indicates if the request was successful and, if not, why it wasn’t successful.</p>
+                </li>
+                <li><p><strong>Status Message</strong>: The status message provides a short description of the corresponding status code.</p>
+                </li>
+                <li><p><strong>Headers</strong>: These response headers are similar to those provided in a request.</p>
+                </li>
+                <li><p><strong>Body</strong>: The body of a response contains data corresponding to the fetched resource. The body is optional and contains data only when necessary to fulfill the request.</p>
+                </li>
+                </ol>
+        </div>
+    </main>
+</body>
+</html>
