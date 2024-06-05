@@ -74,7 +74,7 @@ console.log(modifiedQueryString);
 const http = require('http');
 
 // Creates server instance
-const server = http.createServer((req, res) => {
+const myServer = http.createmyS((req, res) => {
   // Write server code here
   const { method } = req;
 
@@ -95,8 +95,52 @@ const server = http.createServer((req, res) => {
 });
 
 // Starts server listening on specified port
-server.listen(4001, () => {
+myServer.listen(4001, () => {
   const { address, port } = server.address();
   console.log(`Server is listening on: http://${address}:${port}`);
 });
 
+
+/* ----- HTTP Status Codes ------ */
+
+/* 
+*Informational: Range from 100 to 199.
+*Successful: Range from 200 to 299.
+*Redirects: Range from 300 to 399.
+*Client Errors: Range from 400 to 499.
+*Server Errors: Range from 500 to 599.
+ */
+
+const http = require('http');
+
+const handleGetRequest = (req, res) => {
+  // Set GET status code here
+  res.statusCode = 200;
+  return res.end(JSON.stringify({ data: [] }));
+}
+
+const handlePostRequest = (req, res) => {
+  // Set POST status code here
+  res.statusCode = 500;
+  return res.end("Unable to create record");
+}
+
+// Creates server instance
+const theServer = http.createServer((req, res) => {
+  const { method } = req;
+ 
+  switch(method) {
+    case 'GET':
+      return handleGetRequest(req, res);
+    case 'POST':
+      return handlePostRequest(req, res);
+    default:
+      throw new Error(`Unsupported request method: ${method}`);
+  }
+});
+
+// Starts server listening on specified port
+theServer.listen(4001, () => {
+  const { address, port } = server.address();
+  console.log(`Server is listening on: http://${address}:${port}`);
+});
