@@ -144,3 +144,111 @@ theServer.listen(4001, () => {
   const { address, port } = server.address();
   console.log(`Server is listening on: http://${address}:${port}`);
 });
+
+
+/* ----- Interacting with a Database ------ */
+
+const http = require('http');
+const fs = require('fs');
+
+// GET request handler
+const handleTheGetRequest = (req, res) => {
+ if (req.url === '/users') {
+   // Loads the database and searches for data
+   makeDatabaseRequest('users', (err, payload) => {
+      if (err) {
+        res.writeHeader(400);
+        res.write("Error retrieving data");
+      } else {
+        // Process successful request
+        console.log('Content is' + payload);
+        res.writeHeader(200, {"Content-Type": "application/json"});  
+        res.write(JSON.stringify(payload));
+      }
+      res.end(); 
+   });
+ }
+}
+
+// Creates server instance
+const elServer = http.createServer((req, res) => {
+  const { method } = req;
+ 
+  switch(method) {
+    case 'GET':
+      return handleTheGetRequest(req, res);
+    default:
+      throw new Error(`Unsupported request method: ${method}`);
+  }
+});
+
+// Starts server listening on specified port
+elServer.listen(4001, () => {
+  const { address, port } = server.address();
+  console.log(`Server is listening on: http://${address}:${port}`);
+});
+
+function makeDatabaseRequest(type, cb) {
+  fs.readFile('./database.json', 'utf8', function (err, payload) {
+    if (err) {
+      cb(err, null); 
+    } else {
+      cb(null, JSON.parse(payload)[type]);
+    }
+  });
+}
+
+/* ----- Interacting with Another Backend API ------ */
+const http = require('http');
+const https = require('https');
+
+const handleGetTheRequest = (req, res) => {
+  // Write external API request code here
+  const options = {
+    hostname: 'static-assets.codecademy.com',
+    path: '/Courses/Learn-Node/http/data.json',
+    method: 'GET'
+  }
+
+  const request = https.request(options, response => {
+    let data = '';
+
+    response.on('data', chunk => {
+      data += chunk;
+    });
+
+    response.on('end', () => {
+      console.log(data);
+      res.end(data);
+    });
+  });
+
+  request.end();
+}
+
+// Creates server instance
+const inTheServer = http.createServer((req, res) => {
+  const { method } = req;
+ 
+  switch(method) {
+    case 'GET':
+      return handleGetTheRequest(req, res);
+    default:
+      throw new Error(`Unsupported request method: ${method}`);
+  }
+});
+
+// Starts server listening on specified port
+inTheServer.listen(4001, () => {
+  const { address, port } = server.address();
+  console.log(`Server is listening on: http://${address}:${port}`);
+});
+
+/* 
+There are 4 basic HTTP verbs we use in requests to interact with resources in a REST system:
+
+GET — retrieve a specific resource (by id) or a collection of resources
+POST — create a new resource
+PUT — update a specific resource (by id)
+DELETE — remove a specific resource by id
+*/
