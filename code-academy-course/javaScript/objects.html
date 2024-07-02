@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objects</title>
+    <style>
+        main {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, calc(50% - 10px)));
+            gap: 20px;
+            padding: 20px;            
+        }
+
+        .code-container {
+            background-color: #ededed;
+            border-radius: 8px;
+            padding: 20px;
+        }
+
+        body > h1 {
+            text-align: center;
+        }
+
+        .team-players-res, .team-games-res {
+            display: flex;
+        }
+
+        @media screen and (max-width: 768px) {
+            main {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 100%));
+                padding: 0 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <div class="code-container">
+            <h2>Bracket Notation</h2>
+            <p class="space-res"></p>
+
+        </div>
+        <div class="code-container">
+            <h2>Property Assignment</h2>
+            <p class="space1-res"></p>
+
+        </div>
+        <div class="code-container">
+            <h2>Methods</h2>
+            <p class="method-msg"></p>
+
+        </div>
+        <div class="code-container">
+            <h2>Nested Objects</h2>
+            <p class="nested-crew"></p>
+
+        </div>
+        <div class="code-container">
+            <h2>Add or Reassign objects</h2>
+            <p class="change-obj"></p>
+
+        </div>
+        <div class="code-container">
+            <h2>Looping Through Objects</h2>
+            <p class="crew-names"></p>
+            <p class="crew-degrees"></p>
+
+        </div>
+        <div class="code-container">
+            <h2>The this Keyword</h2>
+            <p class="this-key"></p>
+
+        </div>
+        <div class="code-container">
+            <h2>Object Getters using typeof in if statement</h2>
+            <p class="getter"></p>
+
+        </div>
+        <div class="code-container">
+            <h2>Object Setters using typeof in if statement</h2>
+            <p class="setter"></p>
+
+        </div>
+        <div class="code-container">
+            <h2>Factory Functions</h2>
+            <p class="factory"></p>
+
+        </div>
+        <div class="code-container">
+            <h2>Destructured Assignment</h2>
+            <p class="destructured"></p>
+
+        </div>
+
+        <div class="code-container">
+            <h2>Built-in Object Methods</h2>
+            <p class="built-in"></p>
+
+        </div>
+    </main>
+
+    <h1>Followig Challenges Below</h1>
+
+    <main>
+        <div class="code-container">
+            <h2>Menu Object setters and getters challenge Below</h2>
+            <p class="menu-res"></p>
+
+        </div>
+
+        <div class="code-container">
+            <h2>Team Games Object setters and getters challenge Below</h2>
+            <div class="team-container">
+                <h2 style="margin: 0;">Team Players</h2>
+                <div class="team-players-res"></div>
+            </div>
+            <div class="games-container">
+                <h2 style="margin: 0;">Games Played</h2>
+                <div class="team-games-res"></div>
+            </div>
+
+        </div>
+    </main>
+    <script src="objects.js"></script>
+</body>
+</html>

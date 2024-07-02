@@ -1,0 +1,43 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+header {
+    padding: 2%;
+}
+
+header .title {
+    text-align: center;
+}
+
+main {
+    padding: 0 2%;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(186px, 1fr));
+    gap: 24px;
+}
+
+.card {
+    background-color: #ededed;
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.card-title {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.list-item {
+    list-style: none;
+}
+
+.list-subitem {
+    padding-left: 15px;
+}
