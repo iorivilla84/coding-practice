@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iterators</title>
+    <style>
+        main {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, calc(50% - 10px)));
+            gap: 20px;
+            padding: 20px;            
+        }
+
+        .code-container {
+            background-color: #ededed;
+            border-radius: 8px;
+            padding: 20px;
+        }
+
+        body > h1 {
+            text-align: center;
+        }
+
+        .team-players-res, .team-games-res {
+            display: flex;
+        }
+
+        .iterators {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .iterators p {
+            flex-grow: 1;
+        }
+
+        .title {
+            text-align: center;
+        }
+
+        @media screen and (max-width: 768px) {
+            main {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 100%));
+                padding: 0 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <div class="code-container">
+            <h2>Checking name of function</h2>
+            <p class="name-func"></p>
+
+        </div>
+
+        <div class="code-container">
+            <h2>Functions as Parameters</h2>
+            <p class="func-par"></p>
+
+        </div>
+    </main>
+    
+    <div class="title">
+        <h2>ITERATORS</h2>
+        <p>For each iterates through the same element that contains the array,
+            The rest of the iterators needs to be store in a new variable to be able to apply the method
+         and get the result value in a new array taken from the original variable that contains the array </p>
+    </div>
+    <main>
+
+        <div class="code-container">
+            <h2>Iterators</h2>
+            <div class="iterators">
+                <p class="for-each"></p>
+                <p class="map"></p>
+                <div class="filter">
+                    
+                </div>
+            </div>
+
+        </div>
+
+        <div class="code-container">
+            <h2>Map Iterator</h2>
+            <div>
+                <h3>Get first letter to find secret word</h3>
+                <p class="map1"></p>
+            </div>
+            <div>
+                <h3>Get result of each Divided numbers</h3>
+                <p class="map2"></p>
+            </div>
+        </div>
+
+        <div class="code-container">
+            <h2>Map Iterator</h2>
+            <div>
+                <h3>Get numbers that are less than 250</h3>
+                <p class="filter1"></p>
+            </div>
+            <div>
+                <h3>Get words that are less than 7 char</h3>
+                <p class="filter2"></p>
+            </div>
+        </div>
+
+        <div class="code-container">
+            <h2>findIndex() Iterator</h2>
+            <div>
+                <h3>Return index position of element with name 'elephant'</h3>
+                <p class="index1"></p>
+            </div>
+            <div>
+                <h3>Find the word that starts with 'S'</h3>
+                <p class="index2"></p>
+            </div>
+        </div>
+
+        <div class="code-container">
+            <h2>The .reduce() Method Iterator</h2>
+            <div>
+                <p>returns a single value after iterating through the elements of an array, thereby reducing the array</p>
+                <p>adding an extra argument at the end of the function, the sum will take that number to then go through the array</p>
+                <p class="reduce"></p>
+            </div>
+        </div>
+
+        <div class="code-container">
+            <h2>The .some() + .every() Method Iterator</h2>
+            <div>
+                <p>The two methods above iterates to an array and returns a boolean</p>
+                <p class="some-every"></p>
+            </div>
+        </div>
+
+        <div class="code-container">
+            <h2>Using .filter() on an object</h2>
+            <div>
+            <p>
+                .filter() documentation on MDN Web Docs you can confirm that .filter() is
+                only for arrays. On the Stack Overflow page, it recommends using
+                Object.keys(data) to turn the object into an iterable array so you can use the
+                .filter() Array method on the new array. <br>
+                <strong>RESULT BELOW</strong>
+            </p>    
+                <p class="filter-on-object"></p>
+            </div>
+        </div>
+        
+    </main>
+
+    <div class="title">
+        <h2>ITERATORS CHALLENGE (CHOOSING THE CORRECT ITERATOR)</h2>
+        <p> Demonstration of choosing the correct iterator to get the correct result
+        </p>
+    </div>
+    <div style="padding: 0 20px 20px;">
+        <div class="code-container">
+            <h2>Iterators challenge</h2>
+            <div class="iterators">
+                <p class="iterators-challenge"></p>
+            </div>
+
+        </div>
+    </div>
+    <script src="iterators.js"></script>
+</body>
+</html>
