@@ -65,14 +65,18 @@ for (let i = 0; i < rapperArray.length; i++) {
 
 /*------ Reverse loop ----- */
 const items = ['apricot', 'banana', 'cherry'];
-
-for (let i = items.length - 1; i >= 0; i -= 1) {
+const reverseRes1 = document.querySelector('.reverse-loop1');
+for (let i = items.length - 1; i >= 0; i--) {
   console.log(`${i}. ${items[i]}`);
+  reverseRes1.innerHTML += `${i}.${items[i]} `
 }
 
 const gadgets = ['laptop', 'watch', 'phone', 'screen'];
+const reverseRes2 = document.querySelector('.reverse-loop2');
+
 for (let i = gadgets.length - 1; i >= 0; i -= 1) {
     console.log(`Gadget is: ${gadgets[i]}`)
+    reverseRes2.innerHTML += `${i}.<b>Gadget is:</b> ${gadgets[i]} `
 }
 
 
