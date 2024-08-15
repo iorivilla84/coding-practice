@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice JavaScript Syntax: Arrays, Loops, Objects, Iterators</title>
+    <style>
+        main {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, calc(50% - 10px)));
+            gap: 20px;
+            padding: 20px;            
+        }
+
+        .code-container {
+            background-color: #ededed;
+            border-radius: 8px;
+            padding: 20px;
+        }
+
+        body > h1 {
+            text-align: center;
+        }
+
+        .team-players-res, .team-games-res {
+            display: flex;
+        }
+
+        .iterators {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .iterators p {
+            flex-grow: 1;
+        }
+
+        .title {
+            text-align: center;
+        }
+
+        @media screen and (max-width: 768px) {
+            main {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 100%));
+                padding: 0 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="title">
+        <h2>Practice JavaScript Syntax: Arrays, Loops, Objects, Iterators</h2>
+    </div>
+    <main>
+        <div class="code-container">
+            <h2>reverseArray()</h2>
+            <p><b>sample:</b> for (let i = array.length - 1; i >= 0; i -= 1)</p>
+            <p><b>sample:</b> for (let i = array.length - 1; i >= 0; i--)</p>
+            <p class="reverse-array"></p>
+        </div>
+
+        <div class="code-container">
+            <h2>greetAliens() for loop</h2>
+            <p><b>sample:</b> for (let i = 0; i < grettingMsg.length; i++)</p>
+            <p class="for-loop"></p>
+        </div>
+
+        <div class="code-container">
+            <h2>convertToBaby() for loop and .push()</h2>
+            <p><b>sample:</b> for (let i = 0; i < array.length; i++)</p>
+            <p class="for-loop2"></p>
+        </div>
+
+
+        <div class="code-container">
+            <h2>Using forEach() to call a function</h2>
+            <p>Creating a function to loop through an array so then can be called using forEach()</p>
+            <h3>Calling function inside a forEach()</h3>
+            <p class="for-each-function"></p>
+            <h3>Using Normal forEach()</h3>
+            <p class="normal-for-each"></p>
+        </div>
+
+        <div class="code-container">
+            <h2>Using map() to call a function</h2>
+            <p>Creating a function to loop through an array so then can be called using map()</p>
+            <h3>Calling function inside a map()</h3>
+            <p class="map-on-function"></p>
+        </div>
+
+        <div class="code-container">
+            <h2>Using filter(), map() to get result and forEach()</h2>
+            <h3>Using filter and map together to get result</h3>
+            <p class="map-filter-juntos"></p>
+
+            <h3>Using foreEach() to get result</h3>
+            <p class="res-foreach"></p>
+        </div>
+
+        <div class="code-container">
+            <h2>Using sort() and reverse() to get years in descending order</h2>
+            <p class="sort-res"></p>
+        </div>
+    </main>
+        
+    <script src="challenge.js"></script>
+</body>
+</html>
