@@ -52,9 +52,6 @@ const alienShip = {
 alienShip.retreat()
 alienShip.takeOff()
 
-console.log(alienShip.retreat())
-console.log(alienShip.takeOff())
-
 /* ------- Nested Objects ------- */
 let mySpaceship = {
     passengers: [{'name': 'Diego'}, {'name': 'Jessica'}],
@@ -206,24 +203,26 @@ const setterOut = document.querySelector('.setter');
 const theRobot = {
   _model: '1E78V2',
   _energyLevel: 100,
-  _numOfSensors: 15,
+  _numOfSensors: 0,
   get numOfSensors(){
-    if(typeof this._numOfSensors === 'number'){
+    if(typeof this._numOfSensors === 'number' && this._numOfSensors > 0){
       return this._numOfSensors;
     } else {
-      return 'Sensors are currently down.'
+      return 'Sensors are currently down, try again later.'
     }
   },
-  set numOfSensors(num) {
-    if (typeof num === 'number' && num >= 0) {
+  set theNumOfSensors(num) {
+    if (typeof num === 'number' && num > 0) {
       this._numOfSensors = num;
     } else {
-      console.log('Pass in a number that is greater than or equal to 0');
+      console.log('No Pass in a number that is greater than 0');
     }
   }
 };
-
-setterOut.innerHTML = theRobot.numOfSensors = 'Final Sensor is:' +  100;
+// theRobot.theNumOfSensors = 'hello'; // Testing a wrong value
+theRobot.theNumOfSensors = 50;
+const sensorsNum = theRobot.numOfSensors;
+setterOut.innerHTML = sensorsNum
 
 /* ------- Factory Functions ------- */
 const factoryFunc = document.querySelector('.factory')
@@ -437,5 +436,5 @@ function getAge(name) {
   return ages[name];
 }
 
-console.log(hasPerson("hasOwnProperty"));
+console.log('return boolean: ' + hasPerson("hasOwnProperty"));
 console.log(getAge("toString"));
