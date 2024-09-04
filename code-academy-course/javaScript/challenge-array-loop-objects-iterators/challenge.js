@@ -103,3 +103,140 @@ const years = [1970, 1999, 1951, 1982, 1963, 2011, 2018, 1922]
 
 yearsOrdered.innerHTML = sortYears(years);
 // Should print [ 2018, 2011, 1999, 1982, 1970, 1963, 1951, 1922 ]
+
+/*------ Using filter() to compare two arrays and return common words ----- */
+const justCoolStuff = (arr1, arr2) => {
+  return arr1.filter(wordInCommon => {
+    return arr2.includes(wordInCommon);
+  })
+}
+
+const coolStuff = ['gameboys', 'skateboards', 'backwards hats', 'fruit-by-the-foot', 'pogs', 'my room', 'temporary tattoos'];
+
+const myStuff = [ 'rules', 'fruit-by-the-foot', 'wedgies', 'sweaters', 'skateboards', 'family-night', 'my room', 'braces', 'the information superhighway']; 
+const filterComparisonResult = document.querySelector('.filter-compare');
+
+filterComparisonResult.innerHTML = 'Common words are => ' + justCoolStuff(myStuff, coolStuff)
+// Should print [ 'fruit-by-the-foot', 'skateboards', 'my room' ]
+
+/*------ Using every() to go through array and return boolean ----- */
+const isTheDinnerVegan1 = arr => {
+  return arr.every(dish => {
+    return dish.source === 'plant'
+  })
+}
+
+// Using for loop to pass inner function to check array and return boolean
+const isTheDinnerVegan2 = (arr) => {
+      const isVegan = dish => {
+        if (dish.source === 'plant') {
+          return true;
+        }
+        return false
+      }
+
+      for (let i = 0; i < arr.length; i++) {
+        if (!isVegan(arr[i])) {
+          return false;
+        }
+      }
+      return true;
+}
+
+const noVeganMenu = [{name: 'hamburger', source: 'meat'}, {name: 'cheese', source: 'dairy'}, {name: 'ketchup', source:'plant'}, {name: 'bun', source: 'plant'}, {name: 'dessert twinkies', source:'unknown'}];
+const veganMenu = [{name: 'hamburger', source: 'plant'}, {name: 'ketchup', source: 'plant'}, {name: 'salad', source: 'plant'}, {name: 'kinoa', source:'plant'}];
+const everyArrRes = document.querySelector('.every-method')
+const forArrRes = document.querySelector('.for-loopm')
+
+everyArrRes.innerHTML = 'not all dishes are vegan => ' + isTheDinnerVegan1(noVeganMenu)
+forArrRes.innerHTML = 'all dishes are vegan=> ' + isTheDinnerVegan1(veganMenu)
+// Should print false
+
+
+/*------ Using sort() as function to iterate on array of objects and sort species by No of teeth ----- */
+const speciesArray = [ {speciesName:'shark', numTeeth:50}, {speciesName:'dog', numTeeth:42}, {speciesName:'alligator', numTeeth:80}, {speciesName:'human', numTeeth:32}];
+const sortSpeciesByTeeth = arr => {
+  const arrSorted = arr.sort((specie1, specie2) => specie1.numTeeth - specie2.numTeeth);
+  
+  let arrOutput = [];
+  for (let i = 0; i < arrSorted.length; i++) {
+    arrOutput.push(`${arrSorted[i].speciesName}: ${arrSorted[i].numTeeth}`)
+  }
+  return arrOutput;
+}
+console.log(sortSpeciesByTeeth(speciesArray))
+const sortedSpecies = document.querySelector('.sort-method');
+sortedSpecies.innerHTML = sortSpeciesByTeeth(speciesArray).join(', ');
+
+
+const sortSpeciesByTeeth2 = arr => {
+  const arrSorted2 = arr.sort((specie1, specie2) => specie1.numTeeth - specie2.numTeeth);
+  
+  let arrOutput2 = [];
+  for (let specie in arrSorted2) {
+    arrOutput2.push(`${arrSorted2[specie].speciesName}: ${arrSorted2[specie].numTeeth}`)
+  }
+  return arrOutput2;
+}
+console.log('sortSpeciesByTeeth2 =>' + sortSpeciesByTeeth2(speciesArray));
+
+const resSpecies2 = document.querySelector('.sort-method2');
+resSpecies2.innerHTML = sortSpeciesByTeeth2(speciesArray).join(' / ')
+
+// Should print:
+// [ { speciesName: 'human', numTeeth: 32 },
+//   { speciesName: 'dog', numTeeth: 42 },
+//   { speciesName: 'shark', numTeeth: 50 },
+//   { speciesName: 'alligator', numTeeth: 80 } ]
+
+/*------ Using sort() as function to iterate on array of objects and sort species by No of teeth ----- */
+const findMyKeys = myKeys => {
+  return myKeys.indexOf('keys');
+}
+
+const randomStuff = ['credit card', 'screwdriver', 'receipt', 'gum', 'keys', 'used gum', 'plastic spoon'];
+const keysIndexOf = document.querySelector('.index-item')
+
+keysIndexOf.innerHTML = 'keys position number is => ' + findMyKeys(randomStuff);
+// Should print 4
+
+/*------ function with object inside with _properties, Setters and Getters ----- */
+const dogFactory = (name, breed, weight) => {
+  return {
+    _name: name,
+    _breed: breed,
+    _weight: weight,
+    get name() {
+      return this._name;
+    },
+    set name(newName) {
+      this._name = newName;
+    },
+    get breed() {
+      return this._breed;
+    },
+    set breed(newBreed) {
+      this._breed = newBreed;
+    },
+    get weight() {
+      return this._weight;
+    },
+    set weight(newWeight) {
+      this._weight = newWeight;
+    },
+    bark() {
+      return 'ruff! ruff!';
+    },
+    eatTooManyTreats() {
+      this._weight++;
+      return this._weight;
+    }
+  }
+}
+const dogDetails = dogFactory('Benji', 'Mini Dachshund', 10);
+// console.log(dogFactory('Joe', 'Pug', 27))
+const finalDetails = `${dogDetails.name}, ${dogDetails.breed}, ${dogDetails.weight}, 
+  this dog does a lot of ${dogDetails.bark()} and if eat too many treats usually
+  gets ${dogDetails.eatTooManyTreats()}kg each month`
+const objectOut = document.querySelector('.object-res');
+objectOut.innerHTML = finalDetails;
