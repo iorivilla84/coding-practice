@@ -15,7 +15,14 @@ message.innerHTML = finalMsg;
 
 
 
-/*------ Nested Arrays ----- */
+/*------ Nested Arrays basics ----- */
+// To access the nested arrays we can use bracket notation with the index value
+const numberClusters = [[1, 2], [3, 4], [5, 6]];
+
+const target = numberClusters[2][1]
+console.log(target)
+
+/*------ Nested Arrays 2 ----- */
 const bobsFollowers = ['Lisa', "Jess", "Kyle", 'Jackie', 'Nelly'];
 const tinasFollowers = ['Lisa', 'Kim', 'Kyle', 'Nelly'];
 const mutualFollowers = [];
