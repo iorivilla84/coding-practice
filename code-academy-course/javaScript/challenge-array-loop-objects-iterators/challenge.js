@@ -79,6 +79,10 @@ const shoutGreetings1 = arr => {
         .map(str => `${str.toUpperCase()}! `)
 }
 
+// Simplified version from the above
+const shoutAllGreetings = arr =>
+  arr.map(word => `${word.toUpperCase()}!`);
+
 const shoutGreetings2 = arr => {
     let newMsg = '';
     arr.forEach(word => {
@@ -87,14 +91,17 @@ const shoutGreetings2 = arr => {
     return newMsg;
 }
 
+const shoutWordsInCapitals = ['hello', 'again', 'simple', 'way', 'of', 'coding'];
 const greetings1 = ['hello', 'hi', 'heya', 'oi', 'hey', 'yo'];
 const greetings2 = ['hello', 'word', 'Im', 'here', 'studying', 'always'];
 const filterMapJuntos = document.querySelector('.map-filter-juntos');
 const resForEach = document.querySelector('.res-foreach');
+const mapNewArr = document.querySelector('.map-new-arr');
   
 filterMapJuntos.innerHTML = shoutGreetings1(greetings1).join(' ')
 // Should print [ 'HELLO!', 'HI!', 'HEYA!', 'OI!', 'HEY!', 'YO!' ]
 resForEach.innerHTML = shoutGreetings2(greetings2);
+mapNewArr.innerHTML = shoutAllGreetings(shoutWordsInCapitals).join('/ ');
 
 /*------ Using sort() and reverse() to get years in descending order ----- */
 const yearsOrdered = document.querySelector('.sort-res');
@@ -105,6 +112,10 @@ yearsOrdered.innerHTML = sortYears(years);
 // Should print [ 2018, 2011, 1999, 1982, 1970, 1963, 1951, 1922 ]
 
 /*------ Using filter() to compare two arrays and return common words ----- */
+// const justCoolStuff2 = (arr1, arr2) => {
+//   return arr1.filter(word => arr2.some(word2 => word2 === word))
+// }
+
 const justCoolStuff = (arr1, arr2) => {
   return arr1.filter(wordInCommon => {
     return arr2.includes(wordInCommon);
@@ -194,7 +205,11 @@ const findMyKeys = myKeys => {
   return myKeys.indexOf('keys');
 }
 
+// improved version 
+const findMyKeys2 = arr => arr === 'keys';
+
 const randomStuff = ['credit card', 'screwdriver', 'receipt', 'gum', 'keys', 'used gum', 'plastic spoon'];
+console.log('find my keys index is:', randomStuff.findIndex(findMyKeys2));
 const keysIndexOf = document.querySelector('.index-item')
 
 keysIndexOf.innerHTML = 'keys position number is => ' + findMyKeys(randomStuff);
