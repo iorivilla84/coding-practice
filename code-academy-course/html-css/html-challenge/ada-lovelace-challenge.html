@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="form-validation-and-submit.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300..800&display=swap" rel="stylesheet">
+    <title>Ada Lovelace Challenge</title>
+</head>
+    <body>
+        <nav class="main-nav">
+            <div class="logo">
+                <h1 class="text-logo">
+                    Ada Lovelace
+                </h1>
+            </div>
+            <ul class="nav-wrapper">
+                <li class="nav-item">
+                    <a href="" class="nav-link">About Me</a>
+                </li>
+                <li class="nav-item">
+                    <a href="" class="nav-link">Projects</a>
+                </li> 
+                <li class="nav-item">
+                    <a href="" class="nav-link">Skills</a>
+                </li> 
+                <li class="nav-item">
+                    <a href="" class="nav-link">Contact</a>
+                </li> 
+            </ul>
+        </nav>
+        <main class="main-container">
+            <div class="split-wrapper">
+                <div class="about-me">
+                    <h2 class="about">About Me</h2>
+                    <p class="split-text">
+                        Hi! I'm Ada, Countess of Lovelace and am an English mathematician and writer, chiefly known for my work on Charles
+                        Babbage's proposed mechanical general-purpose computer, the Analytical Engine.
+                    </p>
+                    <p class="split-text">
+                        I am one of the first to recognize that machines have applications beyond pure calculation, and to have published the
+                        first algorithm intended to be carried out by such a machine.
+                    </p>
+                    <p class="split-text">
+                        In my free time I like to read about scientific developments, mathematics, and computational mathematics. I also like to
+                        take my chances of winning big.
+                    </p>
+                    <p class="split-text">
+                        Fun fact! I've been programing for <span id="time-container">0</span> seconds!
+                    </p>
+                </div>
+                <div class="image-container">
+                    <img src="img/Ada_Lovelace_portrait.jpg" alt="" class="ada-img">
+                </div>
+            </div>
+            <div class="projects">
+                <h2 class="projects-title">Projects</h2>
+                <details>
+                    <summary>The first computer program</summary>
+                    <img src="img/projects1.jpg" alt="" class="projects-img">
+                    <p class="projects-det">
+                        The world's first computer program for computing Bernoulli numbers.
+                    </p>
+                </details>
+
+                <details>
+                    <summary> The Analytical Engine</summary>
+                    <img src="img/projects2.webp" alt="" class="projects-img">
+                    <p class="projects-det">
+                        I helped Charles Babbage on topics ranging from math to computation that helped the development of the Analytical
+                        Engine.
+                    </p>
+                </details>
+
+                <details>
+                    <summary>The Ada programming language</summary>
+                    <img src="img/projects3.png" alt="" class="projects-img">
+                    <p class="projects-det">
+                        My work inspired the United States Department of Defense to name their new programming language after me.
+                    </p>
+                </details>
+            </div>
+        </main>
+        <footer>
+            <h3 class="skills">Skills</h3>
+            <div class="skills-wrapper">
+                <i class="fab fa-html5"></i>
+                <i class="fab fa-css3-alt"></i>
+                <i class="fab fa-js"></i>
+                <i class="fab fa-react"></i>
+                <i class="fab fa-aws"></i>
+                <i class="fab fa-sketch"></i>
+                <i class="fab fa-figma"></i>
+                <i class="fab fa-git"></i>
+                <i class="fab fa-chrome"></i>
+                <i class="fas fa-terminal"></i>
+                <i class="fas fa-universal-access"></i>
+                <i class="fab fa-npm"></i>
+                <i class="fab fa-node"></i>
+                <i class="fab fa-github"></i>
+              </div>
+        </footer>
+
+        <script>
+            const timeContainer = document.getElementById("time-container");
+            const CODING_DAY = new Date("2013-10-06");
+            const intlNumberFormatter = new Intl.NumberFormat("en-US");
+
+            const updateTimeDifference = () => {
+                const now = new Date();
+                const differenceInSeconds = Math.floor((now - CODING_DAY) / 1000);
+                timeContainer.innerText = intlNumberFormatter.format(differenceInSeconds);
+
+                // Schedule the next update
+                requestAnimationFrame(updateTimeDifference);
+            };
+
+            // Start the update loop
+            updateTimeDifference();
+          </script>
+    </body>
+</html>

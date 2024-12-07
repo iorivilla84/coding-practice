@@ -1,0 +1,97 @@
+:root {
+    --font-color: #323232;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    max-width: 900px;
+    width: 100%;
+    margin: 0 auto;
+    color: var(--font-color);
+    font-family: "Open Sans", sans-serif;
+}
+
+.main-nav, .main-container, footer {
+    padding: 0 15px;
+}
+
+.main-nav, .nav-wrapper {
+    display: flex;
+}
+
+.main-nav {
+    justify-content: space-between;
+}
+
+.text-logo {
+    font-weight: 700;
+}
+
+.nav-item {
+    list-style: none;
+    padding: 8px;
+}
+ 
+.nav-item a {
+    text-decoration: none;
+    color: var(--font-color);
+}
+
+.split-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.about-me {
+    flex: 1 65%;
+}
+
+.image-container {
+    flex: 1 35%;
+}
+
+.ada-img {
+    width: 100%;
+}
+
+summary {
+    cursor: pointer;
+}
+
+.projects-img {
+    width: 50%;
+}
+
+.skills-wrapper {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.fab, .fas {
+    font-size: 2rem;
+}
+
+@media screen and (max-width: 576px) {
+    .about-me {
+        flex: 1 100%;
+    }
+    
+    .image-container {
+        flex: 1 100%;
+    }
+
+    .skills-wrapper {
+        justify-content: flex-start;
+        
+        display: block;
+    }
+
+    .fab, .fas {
+        margin-right: 15px;
+        margin-bottom: 15px;
+    }
+}
