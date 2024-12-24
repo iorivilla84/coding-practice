@@ -1,0 +1,69 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    padding: 3vw 7vw;
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.box {
+    flex: 1 auto;
+    overflow: hidden;
+    position: relative;
+}
+
+.inner-content {
+    padding: 50px;
+    width: 100%;
+}
+
+@media (hover: none) and (pointer: coarse) {
+    .inner-content:nth-child(1) {
+        background-color: #ededed;
+        transform: translate3d(0, 0, 0);
+        transition: transform .3s ease-in-out;
+    }
+    
+    .inner-content:nth-child(2) {
+        background-color: red;
+        transform: translate3d(100%, 0, 0);
+        transition: transform .3s ease-in-out;
+        position: absolute;
+        top: 0;
+     }
+
+    .box.is-swiped .inner-content:nth-child(1) {
+        transform: translate3d(-100%, 0, 0);
+    }
+
+    .box.is-swiped .inner-content:nth-child(2) {
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .inner-content {
+        cursor: pointer;
+    }
+
+    .inner-content:nth-child(1) {
+        background-color: #ededed;
+    }
+    
+    .inner-content:nth-child(2) {
+        background-color: red;
+        position: absolute;
+        top: 0;
+        opacity: 0;
+     }
+
+     .inner-content:hover:nth-child(2) {
+        opacity: 1;
+     }
+}
