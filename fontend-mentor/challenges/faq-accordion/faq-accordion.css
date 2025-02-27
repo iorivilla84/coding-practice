@@ -1,0 +1,111 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h1, h2 {
+    padding: 3% 0;
+}
+
+.header-container {
+    text-align: center;
+    padding: 3% 3% 0;
+}
+
+.title2 {
+    background-color: #f7f7f7;
+    padding: 0 40px;
+}
+
+.accordion-title {
+    background-color: orange;
+    padding: 20px 30px 20px;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+}
+
+.header-wrapper {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    position: relative;
+}
+
+.accordion-container {
+    background-color: #f7f7f7;
+    padding: 20px 40px 40px;
+}
+
+.accordion-container:last-child {
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+.accordion-content {
+    border-bottom: 1px solid #d8d7d7;
+}
+
+.accordion-content:last-child {
+    border-bottom: none;
+}
+
+.accordion-header, .accordion-header2 {
+    color: black;
+    text-decoration: none;
+    margin-bottom: 0;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.accordion-header::after, .accordion-header2::after {
+    content: '+';
+    color: green;
+    position: absolute;
+    right: 24px;
+    transform: rotate(0);
+    transition: all 0.3s ease-out;
+}
+
+.accordion-header.open::after, .accordion-header2.open::after {
+    color: red;
+    transform: rotate(45deg);
+    transition: all 0.3s ease-out;
+}
+
+.extend-btn {
+    border: 0;
+    cursor: pointer;
+    font-size: 20px;
+    padding: 0 10px;
+}
+
+section .faq-container {
+    width: 50vw;
+    margin: 0 auto;
+}
+
+.accordion-text-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .3s ease-out;
+}
+
+.accordion-text {
+    padding: 20px 10px;
+}
+
+@media screen and (max-width: 576px) {
+    section .faq-container {
+        width: 100%;
+        padding: 0 15px;
+    }
+}
