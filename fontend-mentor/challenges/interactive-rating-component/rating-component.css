@@ -1,0 +1,144 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #131519;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.rating-container {
+    background-color: #1F2633;
+}
+
+.title {
+    color: white;
+    margin-bottom: 3rem;
+    padding: 0 15px;
+
+}
+
+.container-wrapper {
+    margin: 0 auto;
+    width: 400px;
+    position: relative;
+}
+
+.rating-container {
+    width: 100%;
+    padding: 30px;
+    border-radius: 20px;
+    color: white;
+}
+
+.rating-container::before {
+    background-color: #27313A;
+    content: '★';
+    color: rgb(255, 145, 0);
+    font-size: 25px;
+    padding: 11px 15px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-bottom: 30px;
+}
+
+.rating-title {
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.rating-txt {
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+.rating-numbers {
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.rating-numbers .number {
+    background-color: #27313A;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 45px;
+    width: 45px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color .3s ease-out;
+    color: white;
+    text-decoration: none;
+}
+
+
+.rating-numbers .number:hover {
+    background-color: #959eac;
+    color: black;
+}
+
+.rating-numbers .number.selected  {
+    background-color: #FC7816;
+    color: white;
+}
+
+.submit-btn {
+    background-color: #FC7816;
+    outline: none;
+    border: none;
+    width: 100%;
+    padding: 10px;
+    border-radius: 20px;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    cursor: pointer;
+}
+
+.submit-btn:hover {
+    background-color: #da6b16;
+    color: white;
+}
+
+/* Thank You Message */
+.ratings-result-wrapper {
+    text-align: center;
+    display: none;
+}
+
+.result-message {
+    background-color: #27313A;
+    color: #FC7816;
+    padding: 5px 10px;
+    margin-bottom: 20px;
+    border-radius: 20px;
+}
+
+.error-message-wrapper {
+    margin-top: 20px;
+    text-align: center;
+    color: #FC7816;
+}
+
+.back-btn {
+    background-color: #da6b16;
+    padding: 8px 10px;
+    width: fit-content;
+    margin: 0 auto;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 576px) {
+    .container-wrapper {
+        width: 100%;
+        padding: 0 15px;
+    }
+}
