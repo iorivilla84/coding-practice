@@ -1,78 +1,74 @@
+// Utility function to remove all classes from elements
+const removeAllClasses = (elements, className) => {
+    elements.forEach(el => el.classList.remove(className));
+}
+
+// Function to handle rating selection
 const classHandler = selector => {
-    const currentRatingEl = document.querySelectorAll(selector);
+    const ratingElements = document.querySelectorAll(selector);
     const errorMessage = document.querySelector('.error-message');
 
-    if (!currentRatingEl.length) return;
+    if (!ratingElements.length) return;
 
-    currentRatingEl.forEach(number => {
-        const ratingVal = number;
-
-        ratingVal.addEventListener('click', function() {
-            currentRatingEl.forEach(el => el.classList.remove('selected'))
-            ratingVal.classList.add('selected');
-
-            if (errorMessage !== '') {
-                errorMessage.innerHTML = '';
-            }
-        })
-
-        ratingVal.classList.remove('selected');
-    })
+    ratingElements.forEach(rating => {
+        rating.addEventListener('click', function() {
+            removeAllClasses(ratingElements, 'selected'); // Remove 'selected' from all
+            rating.classList.add('selected'); // Add 'selected' to clicked one
+            if (errorMessage) errorMessage.innerHTML = ''; // Clear error
+        });
+    });
+    removeAllClasses(ratingElements, 'selected');
 }
 
-const displayMessage = (selector, submit) => {
-    if (!selector.length) return;
-    
-    const getRatingValue = () => {
-        const currentRatingEl = document.querySelector(selector);
-        if (currentRatingEl) {
-            return Number(currentRatingEl.innerText);
-        }
-    }
+// Function to get the selected rating value
+const getRatingValue = selector => {
+    const selectedElement = document.querySelector(selector);
+    return selectedElement ? Number(selectedElement.innerText) : null;
+}
 
+// Function to handle rating submission
+const submitRating = (selector, submitBtnSelector) => {
+    const submitBtn = document.querySelector(submitBtnSelector);
     const resultContainer = document.querySelector('.ratings-result-wrapper');
-    const submitRating = () => {
-        const submitBtnEl = document.querySelector(submit);
-        const thankYouMessage = document.querySelector('.rating-message');
-        const errorMessage = document.querySelector('.error-message');
+    const thankYouMessage = document.querySelector('.rating-message');
+    const errorMessage = document.querySelector('.error-message');
 
-        submitBtnEl.addEventListener('click', function(e) {
-            if (!submitBtnEl) return;
-    
-            e.preventDefault();
-            if (getRatingValue()) {
-                if (getRatingValue() === 5) {
-                    thankYouMessage.innerHTML = 'You selected 5 out of 5';
-                } else if (getRatingValue() === 4) {
-                    thankYouMessage.innerHTML = 'You selected 4 out of 5';
-                } else if (getRatingValue() === 3) {
-                    thankYouMessage.innerHTML = 'You selected 3 out of 5';
-                } else if (getRatingValue() === 2) {
-                    thankYouMessage.innerHTML = 'You selected 2 out of 5';
-                } else {
-                    thankYouMessage.innerHTML = 'You selected 1 out of 5';
-                }
-                resultContainer.style.display = 'block'
-                resultContainer.previousElementSibling.style.display = 'none'
-            } else {
-                 errorMessage.innerHTML = 'Please select rating';
-             }
-        })
-    }
+    if (!submitBtn) return;
 
-    classHandler('.number');
-    submitRating()
+    submitBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        const ratingValue = getRatingValue(selector);
 
-    const backBtnEl = document.querySelector('.back-btn');
-    backBtnEl.addEventListener('click', () => {
-        resultContainer.style.display = 'none'
-        resultContainer.previousElementSibling.style.display = 'block'
-        classHandler('.number');
-    })
+        if (ratingValue) {
+            thankYouMessage.innerHTML = `You selected ${ratingValue} out of 5`;
+            resultContainer.style.display = 'block';
+            resultContainer.previousElementSibling.style.display = 'none';
+        } else {
+            if (errorMessage) errorMessage.innerHTML = 'Please select a rating';
+        }
+    });
 }
 
+// Function to reset rating selection when going back
+const resetRatings = (selector, backBtnSelector) => {
+    const resultContainer = document.querySelector('.ratings-result-wrapper');
+    const backBtn = document.querySelector(backBtnSelector);
+
+    if (!backBtn) return;
+
+    backBtn.addEventListener('click', () => {
+        resultContainer.style.display = 'none';
+        resultContainer.previousElementSibling.style.display = 'block';
+        classHandler(selector); // Reset rating selection
+    });
+}
+
+// Initialize rating system
 const initRatings = () => {
-    displayMessage('.number.selected', '.submit-btn');
+    classHandler('.number'); // Handle rating selection
+    submitRating('.number.selected', '.submit-btn'); // Handle submission
+    resetRatings('.number', '.back-btn'); // Handle reset
 }
 
+// Start the script
 initRatings();
