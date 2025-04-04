@@ -1,0 +1,245 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.d-none {
+    display: none;
+}
+
+.light-color {
+    color: #8977B5;
+}
+
+body {
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    padding: 0 15px;
+    height: 100vh;
+}
+
+.main {
+    background-image: url(./misc/background-desktop.png);
+    background-position: center center;
+    background-size: cover;
+}
+
+.logo-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 0;
+}
+
+.logo {
+    margin-right: 20px;
+}
+
+.logo-txt {
+    font-size: 25px;
+}
+
+.header-content-wrapper {
+    padding: 30px 0;
+    text-align: center;
+}
+
+.header-title {
+    font-size: 40px;
+    letter-spacing: 2px;
+    margin-bottom: 30px;
+}
+
+.header-text {
+    font-size: 20px;
+}
+
+.sent-email {
+    color: #df6a60;
+}
+
+.ticket-generator-wrapper {
+    width: 500px;
+    margin: 0 auto;
+    padding-bottom:7%;
+}
+
+.drag-area-wrapper {
+    margin-bottom: 20px;
+}
+
+.drag-area {
+    padding: 20px 60px;
+    background-color: #19173E;
+    border-radius: 15px;
+    border: 1px white;
+    border-style: dashed;
+    border-width: 2px;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.drag-area.active {
+    border-color: green;
+}
+
+.drag-area.no-image {
+    border-color: red;
+}
+
+
+.upload-btn {
+    padding: 8px;
+    margin-bottom: 20px;
+    background-color: #332F54;
+    border: 0;
+    outline: none;
+    border: 1px solid #4e4a73;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.upload-btn::before {
+    content: "";
+    background-image: url(./misc/icon-upload.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: block;
+    padding: 20px;
+}
+
+.info-msg::before {
+    content: "";
+    background-image: url(./misc/icon-info.svg);
+    padding: 10px;
+    background-repeat: no-repeat;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.general-info-wrapper label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.general-info-wrapper input {
+    width: 100%;
+    padding: 15px;
+    border-radius: 10px;
+    outline: none;
+    border: 1px solid #4e4a73;
+    border-color: #332F54;
+    background-color: #19173E;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.general-info-wrapper input.invalid {
+    border: 1px solid red;
+}
+
+.submit-container {
+    text-align: center;
+}
+
+.submit-btn {
+    padding: 15px;
+    width: 100%;
+    border-radius: 10px;
+    font-size: 18px;
+    letter-spacing: 1px;
+    border: 0;
+    outline: none;
+    cursor: pointer;
+    background-color: #F3756A;
+}
+
+.submit-btn:hover {
+    background-color: #df6a60;
+}
+
+/* Ticket styles */
+.ticket-user-info {
+    width: 600px;
+    padding: 20px 30px;
+    margin: 0 auto;
+    display: flex;
+    background: url(./misc/pattern-ticket.svg) center top no-repeat;
+    justify-content: space-between;
+    height: 280px;
+    margin-bottom: 80px;
+}
+
+.ticket-ready-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 0 0 84%;
+}
+
+.ticket-heading .logo-wrapper {
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 0;
+}
+
+.ticket-heading .logo-wrapper .logo {
+    width: 40px;
+}
+
+.ticket-heading .ticket-time-stamp .logo-txt {
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.ticket-heading .time-stamp {
+    letter-spacing: 1.5px;
+}
+
+.ticket-details-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.ticket-details {
+    display: flex;
+    align-items: center;
+}
+
+.ticket-avatar {
+    width: 80px;
+    margin-right: 20px;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.ticket-avatar img {
+    width: 100%;
+}
+
+.avatar-details .name {
+    font-size: 25px;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+}
+
+.avatar-details .git-link {
+    font-size: 18px;
+    letter-spacing: 1px;
+}
+
+.ticket-number-conainer {
+    align-self: center;
+    transform: rotate(90deg);
+    flex: 0 0 16%;
+}
+
+.ticket-number-conainer .number {
+    font-size: 30px;
+}
