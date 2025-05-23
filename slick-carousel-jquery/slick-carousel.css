@@ -39,6 +39,7 @@ body {
 
 .img-link {
     display: block;
+    width: 100%;
 }
 
 .card-body {
@@ -47,10 +48,41 @@ body {
 
 .card-header {
     position: relative;
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1; /* Maintain square shape for carousel area */
+    overflow: hidden;
 }
 
+.card-header .slick-list {
+    aspect-ratio: 1/1;
+}
+
+.card-header .slick-track {
+    height: 100%;
+}
+
+/* overriding slick styles */
+.card-header .slick-list,
+.card-header .slick-track,
 .card-image {
+    height: 100%;
+}
+
+.card-header .slick-slide, .card-header .slick-track {
+    width: 100% !important;
+}
+/* overriding slick styles */
+
+.card-image {
+    min-height: 0;
     width: 100%;
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .card-image:nth-child(2) {

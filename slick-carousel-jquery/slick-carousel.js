@@ -1,44 +1,44 @@
 const cardsConfig = {
-    "slidesToShow": 1,
-    "slidesToScroll": 1,
-    "arrows": true,
-    "dots": true,
-    "infinite": false,
-    "centerMode": false,
-    "respondTo": "window",
-    "focusOnChange": false,
-    "swipeToSlide": true,
-    "mobileFirst": true,
-    "responsive": [
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: false,
+    dots: true,
+    infinite: false,
+    centerMode: false,
+    respondTo: "window",
+    focusOnChange: false,
+    swipeToSlide: true,
+    mobileFirst: true,
+    responsive: [
         {
-            "breakpoint": 576,
-            "settings": {
-              "slidesToShow": 2
+            breakpoint: 576,
+            settings: {
+                slidesToShow: 2
             }
         },
         {
-            "breakpoint": 960,
-            "settings": {
-                "slidesToShow": 4
+            breakpoint: 960,
+            settings: {
+                slidesToShow: 4
             }
         }
     ]
-}
+};
 
 function updateCarouselState(slick, currentSlide) {
-    const $slider = slick.$slider
-    const lastSlideIndex = slick.slideCount - slick.options.slidesToShow;
-    console.log('carousel is init', slick);
+    const $slider = slick.$slider;
+    const lastSlideIndex = Math.max(0, slick.slideCount - slick.options.slidesToShow);
 
     const $prevArrow = $('.prev-arrow');
     const $nextArrow = $('.next-arrow');
 
-    $prevArrow.on('click', function() {
-        slick.$prevArrow.click();
+    // Unbind before binding to prevent stacking
+    $prevArrow.off('click').on('click', function () {
+        slick.slickPrev();
     });
 
-    $nextArrow.on('click', function() {
-        slick.$nextArrow.click();
+    $nextArrow.off('click').on('click', function () {
+        slick.slickNext();
     });
 
     if (currentSlide === 0) {
@@ -58,41 +58,85 @@ function updateCarouselState(slick, currentSlide) {
     }
 }
 
-function getTotalPages(slick, currentSlide) {
+function getTotalPages(slick) {
     const $carouselControl = $('.slide-count');
-    const totalPages = slick.slideCount - slick.options.slidesToShow;
-    currentSlide = slick.currentSlide ? slick.currentSlide + 1 : 1;
-    $carouselControl.text(`${currentSlide} / ${totalPages + 1}`);
+    const totalPages = Math.max(1, slick.slideCount - slick.options.slidesToShow + 1);
+    const currentSlide = slick.currentSlide ? slick.currentSlide + 1 : 1;
+    $carouselControl.text(`${currentSlide} / ${totalPages}`);
 }
 
 function initializeCardsCarousel($carousel) {
-    $carousel.on('swipe', function(event, slick, direction, nextSlide) {
-        // console.log(direction === 'left');
+    if ($carousel.data('initialized')) return;
+    $carousel.data('initialized', true);
+
+    $carousel.on('swipe', function (event, slick, direction, nextSlide) {
+        // Optional: swipe logic
     });
 
-    // On edge hit
-    $carousel.on('init', function(event, slick) {
+    $carousel.on('init', function (event, slick) {
         getTotalPages(slick);
         updateCarouselState(slick, slick.currentSlide);
     });
 
-    $carousel.on('beforeChange', function(event, slick, currentSlide) {
-
-    });
-
-    $carousel.on('afterChange', function(event, slick, currentSlide) {
+    $carousel.on('afterChange', function (event, slick, currentSlide) {
         getTotalPages(slick);
-        updateCarouselState(slick, currentSlide)
+        updateCarouselState(slick, currentSlide);
+
+        slick.$slider.find('.card-header').each(function () {
+            const $this = $(this);
+            if (!$this.hasClass('slick-initialized')) {
+                $this.slick(imageConfig);
+            } else {
+                $this.slick('setPosition');
+            }
+        });
     });
 }
 
 function initCardsCarousel($carousel) {
-    if (!$carousel && !$carousel.length) {
-        return
-    }
+    if (!$carousel || !$carousel.length) return;
 
-    initializeCardsCarousel($carousel)
-    $carousel.slick(cardsConfig);
+    $carousel.each(function (index, carousel) {
+        const $carousel = $(carousel);
+        initializeCardsCarousel($carousel);
+        $carousel.slick(cardsConfig);
+    });
 }
 
-initCardsCarousel($('.carousel-container'))
+const imageConfig = {
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: false,
+    dots: true,
+    infinite: false,
+    centerMode: false,
+    respondTo: "window",
+    focusOnChange: false,
+    swipeToSlide: true,
+    mobileFirst: true
+};
+
+function initImagesCarousel($carousel) {
+    if (!$carousel || !$carousel.length) return;
+
+    $carousel.each(function (index, carousel) {
+        const $carousel = $(carousel);
+        if (!$carousel.hasClass('slick-initialized')) {
+            initializeCardsCarousel($carousel);
+            $carousel.slick(imageConfig);
+        }
+    });
+}
+
+// Initialize carousels
+$(document).ready(function () {
+    initCardsCarousel($('.carousel-container'));
+    // Only init .card-header if they're standalone, not nested
+    initImagesCarousel($('.card-header'));
+
+    $(window).on('resize', function () {
+        $('.card-header.slick-initialized').each(function () {
+            $(this).slick('setPosition');
+        });
+    });
+});
