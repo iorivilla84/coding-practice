@@ -70,7 +70,7 @@ body {
 }
 
 .card-header .slick-slide, .card-header .slick-track {
-    width: 100% !important;
+    width: fit-content !important;
 }
 /* overriding slick styles */
 
@@ -85,20 +85,20 @@ body {
     object-fit: cover;
 }
 
-.card-image:nth-child(2) {
+/* .card-image:nth-child(2) {
     position: absolute;
     top: 0;
     left: 0;
     opacity: 0;
     visibility: 0;
     transition: all .3s ease-out;
-}
+} */
 
 
-.card-image:nth-child(2):hover {
+/* .card-image:nth-child(2):hover {
     opacity: 1;
     visibility: 1;
-}
+} */
 
 .card-desc h4 {
     color: red;
