@@ -1,7 +1,7 @@
 import { initCards } from './extension-manajer.js';
 
 /**
- * Initialise the extension cards application
+ * Initialise the extensions cards application
  * @returns {void}
  */
 const init = () => {
