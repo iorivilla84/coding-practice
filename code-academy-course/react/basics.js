@@ -1,3 +1,9 @@
+/* ---------- Importing react when using React with node.js ----------*/
+// import { React } from 'react';
+// import { createRoot } from 'react-dom/client';
+// const container = document.getElementById('app');
+// const root = createRoot(container);
+
 const container = document.getElementById('app');
 console.log(container); // should log the <main> element
 const root = ReactDOM.createRoot(container);
