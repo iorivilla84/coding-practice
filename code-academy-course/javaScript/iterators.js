@@ -252,3 +252,14 @@ console.log('long word is => ' + storyWords[longWordCheck])
 const challengeRes = document.querySelector('.iterators-challenge')
 challengeRes.innerHTML = storyWords.join(' ');
 // console.log(storyWords.join(' '))
+
+// ------- Using .forEach() on an object to set a data attribute on each container------- */
+const textValues = document.querySelectorAll('.text-values p');
+const txtValOutp = document.querySelectorAll('.text-val-output');
+
+textValues.forEach((num, index) => {
+  const val = Number(num.textContent);
+  if (txtValOutp[index]) {
+    txtValOutp[index].setAttribute('data-val', val);
+  }
+});
